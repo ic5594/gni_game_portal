@@ -1,30 +1,24 @@
 <template>
-  <div id="nav">
-    
-  
+  <div id="app">
+    <Backgroundvid></Backgroundvid>
+    <Header></Header>
+    <Body></Body>
+    <router-view/>
   </div>
-  <router-view/>
 </template>
+<script>
+import Header from './components/header/Header.vue'
+import Backgroundvid from './Backgroundvid.vue'
+import Body from './components/body/Body.vue'
 
-<style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
-
-#nav {
-  padding: 30px;
-
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-
-    &.router-link-exact-active {
-      color: #42b983;
-    }
+export default {
+  components:{
+    'Header':Header,
+    'Backgroundvid':Backgroundvid,
+    'Body':Body
   }
 }
+</script>
+<style>
+
 </style>
