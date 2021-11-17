@@ -17,6 +17,7 @@ export default {
     'Backgroundvid':Backgroundvid,
     'Body':Body
   }
+  
 }
 </script>
 <style>
