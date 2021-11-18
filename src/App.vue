@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+  <div id="app" v-on:keyup.up="up" v-on:keyup.down="down" v-on:keyup.right="right" v-on:keyup.left="left">
     <Backgroundvid></Backgroundvid>
     <Header></Header>
     <Body></Body>
@@ -16,7 +16,21 @@ export default {
     'Header':Header,
     'Backgroundvid':Backgroundvid,
     'Body':Body
-  }
+  },
+  data:function(){
+        return{
+            routerlist:[
+            { path:'/game'},
+            { path:'/kids'},
+            { path:'/event'},
+            { path:'/notice'},
+            { path:'/service'},
+            { path:'/mypage'},
+            { path:'/community'}],
+            currentNumber:0,  
+            timer:0
+        };
+    },
   
 }
 </script>
