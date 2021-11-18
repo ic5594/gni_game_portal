@@ -7,15 +7,10 @@ import Notice from '../views/notice/Notice.vue'
 import Service from '../views/service/Service.vue'
 import Mypage from '../views/mypage/Mypage.vue'
 import Community from '../views/community/Community.vue'
-import Footer from '../components/footer/Footer.vue'
+
 
 const routes = [{
         path: '/',
-        name: 'Footer',
-        component: Footer
-    },
-    {
-        path: '/top10',
         name: 'Top10',
         component: Top10
     },
