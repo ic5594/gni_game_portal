@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import Top10 from '../views/top10/Top10.vue'
 import Game from '../views/game/Game.vue'
+import Dropanime from '../views/anime/Dropdownanime.vue'
 import Kids from '../views/kids/Kids.vue'
 import Event from '../views/event/Event.vue'
 import Notice from '../views/notice/Notice.vue'
@@ -18,6 +19,11 @@ const routes = [{
         path: '/game',
         name: 'Game',
         component: Game
+    },
+    {
+        path: '/dropdownanime',
+        name: Dropanime,
+        component: Dropanime
     },
     {
         path: '/kids',
