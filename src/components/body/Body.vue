@@ -31,12 +31,15 @@ export default {
     float: left;
     background-color:black;
     opacity: 0.8;
-    height: 100vh;
+    height: 819px;
     width: 317px;
+    padding-top:150px;
 }
-#boby h1{
-    color: white;
-    
+#body h1{
+    color: white;  
+}
+#body li{
+    margin: 12px;
 }
 #body a{
     text-decoration-line: none;
