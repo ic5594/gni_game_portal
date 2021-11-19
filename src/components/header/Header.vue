@@ -15,6 +15,7 @@ export default {
     opacity: 0.8;
     height: 100vh;
     width: 317px;
+    z-index: 1;
 }
 body {
     margin: 0;
