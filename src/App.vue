@@ -1,17 +1,16 @@
 <template>
-  <div id="app"  v-bind="number in [currentNumber]" transition="fade">
+  <div id="app">
     <Backgroundvid></Backgroundvid>
     <Header></Header>
     <Body></Body>
     <router-view/>
-    <input type="button" v-on:keyup.up='up' v-on:keyup.down='down' v-on:keyup.right="right" v-on:keyup.left="left">
     <div id="redborder" v-bind:style="redbord"></div>
   </div>
  
 </template>
 <script>
-import Header from './components/header/Header.vue'
 import Backgroundvid from './Backgroundvid.vue'
+import Header from './components/header/Header.vue'
 import Body from './components/body/Body.vue'
 
 export default {
@@ -31,41 +30,59 @@ export default {
             { path:'/notice'},
             { path:'/service'},
             { path:'/mypage'},
-            { path:'/community'}],
+            { path:'/community'},
+            ],
             currentNumber:0,  
-            timer:0,
             redbord:{
               width:'277px',
               height: '70px',
-              border: '6px solid red',
+              border: '9px solid red',
               position: 'absolute',
               left:'345px',
-              top:'154px',
-              WebkitTransitionDuration: '1s',
-              MozTransitionDuration: '1s',
-              MsTransitionDuration: '1s',
-              OTransitionDuration: '1s',
-              transitionDuration: '1.5s'
-            }
+              top:'153px',
+              transitionDuration: '0.5s'
+            },
+            initial:0,
+            amount:79.3
         }
     },
-    methods:{
-      up:function(){
-        console.log("up")
-        this.redbord.Transform="translateY(-0.1px)" 
-        this.currentNumber-=1
-        this.$router.push(this.routerlist[Math.abs(this.currentNumber)%this.routerlist.length])
-          },
-      down:function(){
-        console.log("down")
-        this.redbord.transform="translateY(75px)"  
-        this.currentNumber+=1
-        this.$router.push(this.routerlist[Math.abs(this.currentNumber)%this.routerlist.length])
+    mounted(){
+        window.document.onkeydown = (event)=>{
+          console.log("event",event.keyCode);
 
-      },
-
-    }
-  
+           switch(event.keyCode){
+            case 38 :         //up
+              console.log("up");
+              this.currentNumber-=1
+              if(this.currentNumber<0){
+                console.log('-')
+                this.currentNumber=this.routerlist.length-1
+                this.$router.push(this.routerlist[this.currentNumber%this.routerlist.length]);
+              }
+              else{
+                this.$router.push(this.routerlist[this.currentNumber%this.routerlist.length]);
+              }
+              this.initial -=this.amount
+              document.getElementById("redborder").style.transform = "translateY(" + this.initial + "px)"
+               if(this.currentNumber%this.routerlist.length==this.routerlist.length-1){
+                 this.initial=this.amount*(this.routerlist.length-1)
+                 document.getElementById("redborder").style.transform="translateY(" + this.initial +"px)"
+              }
+            break;
+            case 40:          //down
+               console.log("down")
+                this.currentNumber+=1
+                this.$router.push(this.routerlist[this.currentNumber%this.routerlist.length])
+                this.initial +=this.amount;
+                document.getElementById("redborder").style.transform = "translateY(" + this.initial + "px)"
+                 if(this.currentNumber%this.routerlist.length==0){
+                      this.initial=0
+                     document.getElementById("redborder").style.transform="translateY(" + this.initial + "px)"
+                  }
+            break;
+          }  
+        }
+    },
 }
 </script>
 <style>
@@ -74,17 +91,6 @@ export default {
   background-color: white;
   width:100px;
   z-index: 1;
-}
-.fade-transition {
-  transition: all 2s ease;
-  overflow: hidden;
-  visibility: visible;
-  opacity: 1;
-  position: absolute;
-}
-.fade-enter, .fade-leave {
-  opacity: 0;
-  visibility: hidden;
 }
 
 </style>
