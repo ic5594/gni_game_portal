@@ -26,6 +26,11 @@ export default {
     margin-left: 5px;
     margin-top: 405px;
     text-align: center;
+    width: 400px;
+}
+#mypage ul{
+    margin-right: 10px;
+    padding-left:10px
 }
 #mypage ul li{
     color:white;
