@@ -1,5 +1,5 @@
 <template>
-    <div id="mypage">
+    <div id="mypage5">
         <ul>
             <li>내정보 확인</li>
             <hr>
@@ -9,7 +9,7 @@
             <hr>
             <li>결제내역확인</li>
             <hr>
-            <li>아이템 사용내역</li>
+            <li style="border:5px solid red;">아이템 사용내역</li>
         </ul>
     </div>
 </template>
@@ -19,7 +19,7 @@ export default {
 }
 </script>
 <style>
-#mypage{
+#mypage5{
     float:left;
     background-color:black;
     opacity: 0.8;
@@ -27,16 +27,16 @@ export default {
     margin-top: 405px;
     text-align: center;
     width: 400px;
-    
 }
-#mypage ul{
+#mypage5 ul{
     margin-right: 10px;
     padding-left:10px
 }
-#mypage ul li{
+#mypage5 ul li{
     color:white;
     font-size: 40px;
     list-style: none;
-    margin: 11px;  
+    margin: 10px;
+    
 }
 </style>

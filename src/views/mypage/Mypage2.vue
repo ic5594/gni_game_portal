@@ -1,9 +1,9 @@
 <template>
-    <div id="mypage">
+    <div id="mypage2">
         <ul>
             <li>내정보 확인</li>
             <hr>
-            <li>이용약관</li>
+            <li style="border:5px solid red;">이용약관</li>
             <hr>
             <li>개인정보취급</li>
             <hr>
@@ -19,7 +19,7 @@ export default {
 }
 </script>
 <style>
-#mypage{
+#mypage2{
     float:left;
     background-color:black;
     opacity: 0.8;
@@ -27,16 +27,16 @@ export default {
     margin-top: 405px;
     text-align: center;
     width: 400px;
-    
 }
-#mypage ul{
+#mypage2 ul{
     margin-right: 10px;
     padding-left:10px
 }
-#mypage ul li{
+#mypage2 ul li{
     color:white;
     font-size: 40px;
     list-style: none;
-    margin: 11px;  
+    margin: 10px;
+    
 }
 </style>

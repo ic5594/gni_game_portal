@@ -1,18 +1,18 @@
 <template>
     <div id="service">
-        <ol>
-            <li><a>고객센터는 어떻게 연락하나요?</a></li>
+        <ul>
+            <li>1. 고객센터는 어떻게 연락하나요?</li>
             <hr>
-            <li><a>지니게임 이메일 고색센터 안내</a></li>
+            <li>2. 지니게임 이메일 고색센터 안내</li>
             <hr>
-            <li><a>유로 아이템은 어떻게 구매하나요?</a></li>
+            <li>3. 유로 아이템은 어떻게 구매하나요?</li>
             <hr>
-            <li><a>요금이 너무 많이 나왔어요! 결제내역 확인은 어떻게 하나요?</a></li>
+            <li>4. 요금이 너무 많이 나왔어요! 결제내역 확인은 어떻게 하나요?</li>
             <hr>
-            <li><a>구매한 아이템 환불을 신청하고 싶어요. 어떻게 해야하나요?</a></li>
+            <li>5. 구매한 아이템 환불을 신청하고 싶어요. 어떻게 해야하나요?</li>
             <hr>
-            <li><a>구매한 아이템 환불을 신청하고 싶어요. 어떻게 해야 하나요?</a></li>
-        </ol>
+            <li>6. 구매한 아이템 환불을 신청하고 싶어요. 어떻게 해야 하나요?</li>
+        </ul>
     </div>
 </template>
 <script>
@@ -23,26 +23,30 @@ export default {
 <style>
 #service{
     float: left;
-    background-color: black;
+    background-color:white;
     opacity: 0.8;
-    width:1240px;
-    height: 100vh;
-    padding-left: 28px;
-}
-#service ol{
-    margin-top:300px;
-    background-color: black;
+    margin-left: 5px;
+    padding-left: 20px;
     
 }
-#service ol li{
-    color:white;
+#service ul{
+    margin-top:300px;
     background-color: black;
-     font-size: 40px;
+    border-radius: 2%;
+}
+#service ul li{
+    color:white;
+    font-size: 40px;
+    list-style: none;
+    position: relative;
+    right:50px;
+    margin-bottom:10px;
+    margin-left: 20px;
 }
 #service hr{
-    margin-right: 250px;
+    margin-right: 20px;
     position: relative;
-    right: 50px;
+    right: 20px;
 }
 
 </style>
