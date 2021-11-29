@@ -27,5 +27,7 @@ export default {
   background-color: white;
   width:100px;
   z-index: 1;
+  height: 100%;
+  
 }
 </style>
