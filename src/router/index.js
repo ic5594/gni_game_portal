@@ -47,7 +47,9 @@ import Mypage3 from '../views/mypage/Mypage3.vue'
 import Mypage4 from '../views/mypage/Mypage4.vue'
 import Mypage5 from '../views/mypage/Mypage5.vue'
 import Community from '../views/community/Community.vue'
-
+import Community1 from '../views/community/Community1.vue'
+import Community2 from '../views/community/Community2.vue'
+import Community3 from '../views/community/Community3.vue'
 
 const routes = [{
         path: '/',
@@ -288,7 +290,23 @@ const routes = [{
         path: '/community',
         name: 'Community',
         component: Community
+    },
+    {
+        path: '/community1',
+        name: 'Community1',
+        component: Community1
+    },
+    {
+        path: '/community2',
+        name: 'Community2',
+        component: Community2
+    },
+    {
+        path: '/community3',
+        name: 'Community3',
+        component: Community3
     }
+
 
 ]
 
