@@ -1,5 +1,6 @@
 <template>
     <div id="list">
+        <img :src="imageurL">
         <h1>{{ title }}</h1>
         <h2>장르/{{type}}<br>
         {{about}}</h2>
@@ -7,19 +8,15 @@
 </template>
 <script>
 export default {
-    props:{
-        title:String,
-        type:String,
-        about:String
+    props:['imageurL','title','type','about']
     }
-}
 </script>
 <style>
 #list{
     float: left;
-    width:336px;
+    width:380px;
     background-color: black;
-    opacity: 0.7;
+    opacity: 0.8;
     padding:5px;
     margin: 15px;
     height: 150px;
@@ -28,9 +25,25 @@ export default {
     color:white;
     margin-left: 5px;
     margin-bottom: 3px;
+    position: relative;
+    left:150px;
+    bottom:130px;
+    font-size: 26px;
 }
 #list h2{
     color:white;
     margin-left: 5px;
+    position: relative;
+    left: 150px;
+    bottom:90px;
+    font-size: 18px;
+}
+#list h1,h2{
+    margin-top: -10px;
+}
+#list img{
+    display: inline-block;
+    width: 150px;
+    height: 150px;
 }
 </style>
