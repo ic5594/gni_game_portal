@@ -21,17 +21,14 @@ export default {
 #dropanime4{
     float: left;
     background-color: black;
-    opacity: 0.7;
+    opacity: 0.75;
     width: 300px;
     height: 809px;
     padding-top: 160px;
-    
 }
-
 #dropanime4 ol li{
     font-size: 40px;
     color:white;
     list-style: none;
 }
-
 </style>

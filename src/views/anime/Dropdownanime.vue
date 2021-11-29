@@ -21,7 +21,7 @@ export default {
 #dropanime{
     float: left;
     background-color: black;
-    opacity: 0.7;
+    opacity: 0.75;
     width: 300px;
     height: 809px;
     padding-top: 160px;  
