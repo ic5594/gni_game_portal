@@ -1,7 +1,7 @@
 <template>
     <div id="no">
         <div class="nono">
-        <h1>등록한 정보가 없습니다.</h1>
+        <h1>등록된 정보가 없습니다.</h1>
         </div>
     </div>
 </template>
