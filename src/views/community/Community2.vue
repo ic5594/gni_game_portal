@@ -13,7 +13,7 @@ export default {
 <style>
 #community2{
     position: relative;
-    left:754px;
+    left:752px;
     top:100px;
     height: 100vh;
 }
