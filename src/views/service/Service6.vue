@@ -11,7 +11,7 @@
             <hr>
             <li><a>5. 구매한 아이템 환불을 신청하고 싶어요. 어떻게 해야하나요?</a></li>
             <hr>
-            <li  style="border:5px solid red;"><a>6. 구매한 아이템 환불을 신청하고 싶어요. 어떻게 해야 하나요?</a></li>
+            <li style="border:5px solid red;"><a>6. 구매한 아이템 환불을 신청하고 싶어요. 어떻게 해야 하나요?</a></li>
         </ul>
     </div>
 </template>

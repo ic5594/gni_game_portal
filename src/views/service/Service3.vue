@@ -5,7 +5,7 @@
             <hr>
             <li><a>2. 지니게임 이메일 고색센터 안내</a></li>
             <hr>
-            <li  style="border:5px solid red;"><a>3. 유로 아이템은 어떻게 구매하나요?</a></li>
+            <li style="border:5px solid red;"><a>3. 유로 아이템은 어떻게 구매하나요?</a></li>
             <hr>
             <li><a>4. 요금이 너무 많이 나왔어요! 결제내역 확인은 어떻게 하나요?</a></li>
             <hr>

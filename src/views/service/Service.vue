@@ -27,7 +27,6 @@ export default {
     opacity: 0.8;
     margin-left: 5px;
     padding-left: 20px;
-    
 }
 #service ul{
     margin-top:300px;
