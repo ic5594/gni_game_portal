@@ -29,12 +29,8 @@ export default {
     border:1px solid black;
     margin-top:30px;
 }
-
 body {
     margin: 0;
     padding: 0;
 }
-
-
-
 </style>
