@@ -23,6 +23,7 @@
     </div>
 </template>
 <script>
+
 export default {
   data:function(){
     return{
@@ -250,7 +251,6 @@ export default {
                 this.rightEvent(b,this.gamelistL,this.gamelistR)
               }
             }
-            
           }
         console.log('nextnumber:',this.nextNumber)
         break;
@@ -259,13 +259,13 @@ export default {
         case 37:
           if(this.enterNumber>0){
             this.nextNumber-=1
-            if(this.enterindex==1){
+            if(this.enterindex==1){                 //top10
               for(var c=0;c<this.top10listR.length;c++){
                 this.leftEvent(c,this.top10listR,this.top10listL)
               }
             }
             if(this.enterindex==2){
-              for(var d=0;d<this.gamelistR.length;d++){
+              for(var d=0;d<this.gamelistR.length;d++){     //게임
                 this.leftEvent(d,this.gamelistR,this.gamelistL)
               }
             }
@@ -301,11 +301,10 @@ export default {
           }
         }
       }
-      
     },
     downEvent:function(number,event1,event2){
       if(this.enterindex==(number)){
-        this.indexNumber+=1
+        this.indexNumber+=1   //1~9
         if(Math.abs(this.nextNumber)%2==0){
           this.$router.push((event1)[this.indexNumber%(event1).length])
         }
@@ -346,12 +345,19 @@ export default {
         this.$router.push(this.routerlist[(number)])
       }
     },
+    menumove:function(){
+      if(this.currentNumber%this.routerlist.length==0)
+        return{ menuredbord:true}
+      else
+        return{menuredbord:false}
+    },
     initialization:function(){    //여러 인덱스 값 초기화
       this.indexNumber=0
       this.nextNumber=0
       this.enterNumber=0
       this.enterindex=0
-    }
+    },
+
   }
 }
 </script>
@@ -367,16 +373,7 @@ export default {
 		height:auto;
     padding-bottom: 4.7%;
 }
-.menu-img{
-   width: 370px;
-    height: 100px;
-    background-image: url(http://61.251.167.74/ktweb/gniportal/resource/title/MainTitle_gnigame_2.png);
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
-    border:1px solid black;
-    margin-top:-70px;
-}
+
 #menu h1{
     color: white;  
 }
@@ -395,9 +392,16 @@ export default {
     margin-right: 10px;
     margin-left: 10px;
 }
-menu{
-    margin: 0;
-    padding: 0;
+
+.menu-img{
+   width: 370px;
+    height: 100px;
+    background-image: url(http://61.251.167.74/ktweb/gniportal/resource/title/MainTitle_gnigame_2.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    border:1px solid black;
+    margin-top:-70px;
 }
 .menuredbord{
     border:9px solid red;
