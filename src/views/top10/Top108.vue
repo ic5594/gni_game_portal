@@ -10,15 +10,19 @@
         <Redlist title="토이레이싱" type="아케이드" about="장난감들의 레이싱 게임" imageurL="http://61.251.167.74/webportal2018/app/20210507152650078.png"></Redlist>
         <List title="몬스터오팬스히어로" type="오팬스" about="오팬스 끝판왕! 히어로 등장" imageurL="http://61.251.167.74/webportal2018/app/20210504142240728.png"></List>      
         <List title="치즈런" type="러닝" about="맛있는 치즈를 차지하라!" imageurL="http://61.251.167.74/webportal2018/app/20190716151400501.png"></List>  
+        <Numtag></Numtag>
     </div>
 </template>
 <script>
 import List from '../list.vue'
 import Redlist from '../Redlist.vue'
+import Numtag from './top10numtag.vue'
+
 export default {
     components:{
     'List':List,
-    'Redlist':Redlist
+    'Redlist':Redlist,
+    'Numtag':Numtag
     },
 }
 </script>
