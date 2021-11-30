@@ -31,7 +31,7 @@ export default {
 #service4 ul{
     margin-top:300px;
     background-color: black;
-     border-radius: 2%; 
+    border-radius: 2%; 
 }
 #service4 ul li{
     color:white;

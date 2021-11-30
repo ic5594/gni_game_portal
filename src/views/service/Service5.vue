@@ -31,7 +31,7 @@ export default {
 #service5 ul{
     margin-top:300px;
     background-color: black;
-     border-radius: 2%; 
+    border-radius: 2%; 
 }
 #service5 ul li{
     color:white;
