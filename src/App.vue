@@ -1,5 +1,5 @@
 <template>
-  <div id="app" v-bind:list='routerlist' v-bind:number="currentNumber">
+  <div id="app">
     <Backgroundvid></Backgroundvid>
     <Leftsidebar></Leftsidebar>
     <Menu></Menu>
