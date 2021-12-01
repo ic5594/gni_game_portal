@@ -338,7 +338,6 @@ export default {
         this.enterindex+=(number)
         this.$router.push((event)[0])
       }
-      
     },
     escEvent:function(number){      
       if(this.currentNumber%this.routerlist.length==(number)){
@@ -347,7 +346,7 @@ export default {
     },
     menumove:function(){
       if(this.currentNumber%this.routerlist.length==0)
-        return{ menuredbord:true}
+        return{menuredbord:true}
       else
         return{menuredbord:false}
     },
