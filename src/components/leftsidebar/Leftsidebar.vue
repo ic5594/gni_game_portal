@@ -19,7 +19,7 @@ export default {
     overflow:hidden;
     margin:0 auto;
 }
-.image {
+.image{
     width: 370px;
     height: 900px;
     background-image: url(http://61.251.167.74/webportal2018/bnr/20210514134035259.png);
@@ -29,7 +29,7 @@ export default {
     border:1px solid black;
     margin-top:30px;
 }
-body {
+body{
     margin: 0;
     padding: 0;
 }
