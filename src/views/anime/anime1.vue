@@ -14,6 +14,7 @@
 </template>
 <script>
 import List from "../list.vue"
+
 export default {
     components:{
     'List':List

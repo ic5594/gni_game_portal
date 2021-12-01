@@ -1,18 +1,17 @@
 <template>
-    <div id="event">
-        <No></No>
+    <div id="noticenter">
+        <Redno></Redno>
     </div>
 </template>
 <script>
-import No from '../No.vue'
+import Redno from '../Redno.vue'
 
 export default {
     components:{
-        'No':No
+        'Redno':Redno
     }
 }
 </script>
 <style>
-
 
 </style>

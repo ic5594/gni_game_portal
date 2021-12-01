@@ -15,6 +15,7 @@
 <script>
 import List from '../list.vue'
 import Redlist from '../Redlist.vue'
+
 export default {
     components:{
     'List':List,

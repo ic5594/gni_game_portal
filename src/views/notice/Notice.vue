@@ -5,6 +5,7 @@
 </template>
 <script>
 import No from '../No.vue'
+
 export default {
     components:{
         'No':No
