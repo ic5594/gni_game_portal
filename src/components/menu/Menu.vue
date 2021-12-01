@@ -73,6 +73,12 @@ export default {
         { path: '/kids3'},
         { path: '/kids4'}
       ],
+      eventlist:[
+        { path: '/evententer'}
+      ],
+      noticelist:[
+        { path: '/noticeenter'}
+      ],
       animelist:[
         { path: '/dropanime1'},
         { path: '/dropanime2'},
@@ -174,6 +180,8 @@ export default {
           this.enterEvent(2,this.gamelistL)   //게임{17}  
           this.enterEvent(3,this.animelist)   //만화(12)
           this.enterEvent(4,this.kidslist)    //키즈(4)
+          this.enterEvent(5,this.eventlist)
+          this.enterEvent(6,this.noticelist)
           this.enterEvent(7,this.servicelist) //고객센터
           this.enterEvent(8,this.mypage)      //마이페이지
           this.enterEvent(9,this.community)
@@ -197,6 +205,8 @@ export default {
             this.upEvent(2,this.gamelistL,this.gamelistR)    //게임(17)
             this.upEvent(3,this.animelist,this.animelist)    //만화(12)
             this.upEvent(4,this.kidslist,this.kidslist)     //키즈(4)
+            this.upEvent(5,this.eventlist,this.eventlist)
+            this.upEvent(6,this.noticelist,this.noticelist)
             this.upEvent(7,this.servicelist,this.servicelist)  //고객센터
             this.upEvent(8,this.mypage,this.mypage)       //마이페이지
             this.upEvent(9,this.community,this.community)   //커뮤니티
@@ -224,6 +234,8 @@ export default {
             this.downEvent(2,this.gamelistL,this.gamelistR)    //게임(17)
             this.downEvent(3,this.animelist)    //만화(12)
             this.downEvent(4,this.kidslist)     //키즈(4)
+            this.downEvent(5,this.eventlist)
+            this.downEvent(6,this.noticelist)
             this.downEvent(7,this.servicelist)  //고객센터
             this.downEvent(8,this.mypage)       //마이페이지
             this.downEvent(9,this.community)   //커뮤니티
@@ -372,7 +384,6 @@ export default {
 		height:auto;
     padding-bottom: 4.7%;
 }
-
 #menu h1{
     color: white;  
 }
@@ -391,7 +402,6 @@ export default {
     margin-right: 10px;
     margin-left: 10px;
 }
-
 .menu-img{
    width: 370px;
     height: 100px;
