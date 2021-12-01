@@ -32,7 +32,9 @@ import Kids2 from '../views/kids/Kids2.vue'
 import Kids3 from '../views/kids/Kids3.vue'
 import Kids4 from '../views/kids/Kids4.vue'
 import Event from '../views/event/Event.vue'
+import Evententer from '../views/event/Evententer.vue'
 import Notice from '../views/notice/Notice.vue'
+import Noticeenter from '../views/notice/Noticeenter.vue'
 import Service from '../views/service/Service.vue'
 import Service1 from '../views/service/Service1.vue'
 import Service2 from '../views/service/Service2.vue'
@@ -217,9 +219,19 @@ const routes = [{
         component: Event
     },
     {
+        path: '/evententer',
+        name: 'Evententer',
+        component: Evententer
+    },
+    {
         path: '/notice',
         name: 'Notice',
         component: Notice
+    },
+    {
+        path: '/noticeenter',
+        name: 'Noticeenter',
+        component: Noticeenter
     },
     {
         path: '/service',
