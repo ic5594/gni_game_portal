@@ -11,12 +11,15 @@
             <hr>
         </ol>
     </div>  
-      
+    <Anime1></Anime1>
 </template>
 <script>
 import Anime1 from '../anime/anime1.vue'
+
 export default {
-    'Anime1':Anime1
+    components:{
+        'Anime1':Anime1
+    }
 }
 </script>
 <style>

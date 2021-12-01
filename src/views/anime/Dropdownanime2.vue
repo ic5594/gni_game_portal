@@ -11,10 +11,15 @@
             <hr>
         </ol>
     </div>    
+    <Anime2></Anime2>
 </template>
 <script>
+import Anime2 from '../anime/anime2.vue'
+
 export default {
-    
+    components:{
+        'Anime2':Anime2
+    }
 }
 </script>
 <style>

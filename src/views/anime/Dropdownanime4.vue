@@ -11,10 +11,15 @@
             <hr>
         </ol>
     </div>    
+    <Anime3></Anime3>
 </template>
 <script>
+import Anime3 from '../anime/anime3.vue'
+
 export default {
-    
+    components:{
+        'Anime3':Anime3
+    }
 }
 </script>
 <style>
@@ -25,10 +30,13 @@ export default {
     width: 300px;
     height: 809px;
     padding-top: 160px;
+    
 }
+
 #dropanime4 ol li{
     font-size: 40px;
     color:white;
     list-style: none;
 }
+
 </style>

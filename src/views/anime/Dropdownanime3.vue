@@ -11,10 +11,15 @@
             <hr>
         </ol>
     </div>    
+    <Anime3></Anime3>
 </template>
 <script>
+import Anime3 from '../anime/anime3.vue'
+
 export default {
-    
+    components:{
+        'Anime3':Anime3
+    }
 }
 </script>
 <style>
