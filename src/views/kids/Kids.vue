@@ -19,6 +19,7 @@ export default {
 #kids{
     width:400px;
     float: left;
+    margin-top:50px;
 }
 
 </style>
