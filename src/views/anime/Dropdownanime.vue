@@ -24,7 +24,8 @@ export default {
     opacity: 0.75;
     width: 300px;
     height: 809px;
-    padding-top: 160px;  
+    padding-top: 160px;
+    
 }
 #dropanime ol li{
     font-size: 40px;
