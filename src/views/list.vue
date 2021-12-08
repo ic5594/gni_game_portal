@@ -13,13 +13,14 @@ export default {
 </script>
 <style>
 #list{
-    float: left;
+    display: inline-block;
     width:380px;
     background-color: black;
     opacity: 0.8;
     padding:5px;
-    margin: 15px;
-    height: 150px;
+    margin: 16px;
+    height: 145px;
+    margin-top:-30px;
 }
 #list h1{
     color:white;
@@ -44,6 +45,13 @@ export default {
 #list img{
     display: inline-block;
     width: 150px;
-    height: 150px;
+    height: 145px;
+}
+.menuredbord{
+    border:9px solid red;
+    padding: -10px;
+    width:238px;
+    height: 57px;
+    transition: opacity .5s;;
 }
 </style>
