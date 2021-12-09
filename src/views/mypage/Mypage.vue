@@ -1,21 +1,38 @@
 <template>
     <div id="mypage">
         <ul>
-            <li>내정보 확인</li>
+            <li v-bind:class="mypageredbord(0,1)">내정보 확인</li>
             <hr>
-            <li>이용약관</li>
+            <li v-bind:class="mypageredbord(1,1)">이용약관</li>
             <hr>
-            <li>개인정보취급</li>
+            <li v-bind:class="mypageredbord(2,1)">개인정보취급</li>
             <hr>
-            <li>결제내역확인</li>
+            <li v-bind:class="mypageredbord(3,1)">결제내역확인</li>
             <hr>
-            <li>아이템 사용내역</li>
+            <li v-bind:class="mypageredbord(4,1)">아이템 사용내역</li>
         </ul>
     </div>
 </template>
 <script>
 export default {
-    
+    props:["goNumberM","indexNumberM","currentNumberM","routerlistM"],
+    methods:{
+        mypageredbord:function(number1,number2){
+            if(this.currentNumberM%this.routerlistM.length==7){
+                if(this.indexNumberM%5==(number1)){
+                    if(this.goNumberM==(number2)){
+                        return{
+                            mypageredbord:true
+                        }
+                    }
+                    else
+                        return{
+                            mypageredbord:false
+                        }   
+                }
+           }
+        }
+    }
 }
 </script>
 <style>
@@ -27,7 +44,6 @@ export default {
     margin-top: 405px;
     text-align: center;
     width: 400px;
-    
 }
 #mypage ul{
     margin-right: 10px;
@@ -37,6 +53,11 @@ export default {
     color:white;
     font-size: 40px;
     list-style: none;
-    margin: 11px;  
+      
+}
+.mypageredbord{
+    background-image: url(http://61.251.167.74/ktweb/gniportal/resource/selsect_customer_info.png);
+    background-repeat: no-repeat;
+    background-size:100% 100%;  
 }
 </style>

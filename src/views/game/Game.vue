@@ -22,16 +22,16 @@ export default {
     props:["goNumberM","indexNumberM","currentNumberM","routerlistM"],
     methods:{
         gameredbord:function(number1,number2){
-            if(this.currentNumberM==1){
+            if(this.currentNumberM%this.routerlistM.length==1){
                 if(this.indexNumberM%5==(number1)){
                     if(this.goNumberM==(number2)){
                         return{
-                            goredbord:true
+                            gameredbord:true
                         }
                     }
                     else
                         return{
-                            goredbord:false
+                            gameredbord:false
                         }   
                 }
            }
@@ -45,5 +45,9 @@ export default {
     float: left;
     margin-top:50px;
 }
-
+.gameredbord{
+    background-image: url(http://61.251.167.74/ktweb/gniportal/resource/box_select.png);
+    background-repeat: no-repeat;
+    background-size:cover;
+}
 </style>

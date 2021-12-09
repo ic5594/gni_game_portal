@@ -19,6 +19,7 @@
         <Menuli v-bind:menu="menulist[7]" v-bind:class="menu(7)"></Menuli>
         <hr>
         <Menuli v-bind:menu="menulist[8]" v-bind:class="menu(8)"></Menuli>
+        
       </ul>
   </div>
 </template>
@@ -29,7 +30,7 @@ export default {
   components:{
     'Menuli':Menuli
   },
-
+  props:["goNumberM","indexNumberM","currentNumberM","routerlistM"],
   data:function(){
     return{
       menulist:[
@@ -46,15 +47,20 @@ export default {
       
     }
   },
-  props:["currentNumberM","routerlistM"],
   methods:{
     menu:function(number){
       if(this.currentNumberM%this.routerlistM.length==(number)){
-        return{ menuredbord:true }
+        if(this.goNumberM==0){
+          return{ menuredbord:true }
+        }
+        else if(this.goNumberM!=0 ){
+            return{ intomenu: true}
+        }
       }
       else{
         return{ menuredbord:false }
       }
+      
     },
     
   }
@@ -67,24 +73,26 @@ export default {
     opacity: 0.8;
     height: 110vh;
     width: 340px;
-    padding-top:100px;
+    padding-top:90px;
     overflow:hidden;
 		height:auto;
     padding-bottom: 4.7%;
 }
+
 #menu h1{
-    color: white;  
+    color: white;
+    position: relative;
+    bottom:10px;  
 }
 #menu a{
     text-decoration-line: none;
     color: white;
-    font-size: 40px;
-    
+    font-size: 40px;  
 }
 #menu hr{
-    color:white;
+    color:gray;
     margin-right: 10px;
-    margin-left: 10px;
+    margin-left: 30px;
 }
 .menu-img{
    width: 370px;
@@ -96,11 +104,14 @@ export default {
     border:1px solid black;
     margin-top:-70px;
 }
-
-.fade-enter{
-  opacity: 1;
-}
-.fade-enter-active{
-  transition: opacity .5s;
+.menuredbord{
+    background-image: url(http://61.251.167.74/ktweb/gniportal/resource/menu_select_bar.png);
+    background-repeat: no-repeat;
+    background-size:260px 65px;  
+    }
+.intomenu{
+   background-image: url(http://61.251.167.74/ktweb/gniportal/resource/s_select_bar.png);
+    background-repeat: no-repeat;
+    background-size:260px 65px;  
 }
 </style>
