@@ -6,30 +6,24 @@
 </template>
 <script>
 export default {
-    props:["menumove","menu"],
-    data:function(){
-        return{
-              menuredbord:{
-        border:'9px solid red',
-        padding:' -10px',
-        width:'238px',
-        height: '57px',
-        transition: 'opacity .5s'
-      }
-        }
-    },
+    props:["menu"],
+    
 }
 </script>
 <style>
 #menuli{
-    float:block;
+    display:block;
     color:white;
     list-style: none;
     text-decoration-line: none;
     color: white;
-    font-size: 40px;
-    margin: 12px;
-    padding-left: 10px;
+    font-size: 35px;
+    padding:10px;
+    z-index: 5;
+    padding-left: 20px;
+    position: relative;
+    left: 30px;
 }
+
 
 </style>
