@@ -19,7 +19,7 @@ export default {
     opacity: 0.8;
     padding:5px;
     margin: 16px;
-    height: 145px;
+    height: 144px;
     margin-top:-30px;
 }
 #list h1{
@@ -27,7 +27,7 @@ export default {
     margin-left: 5px;
     margin-bottom: 3px;
     position: relative;
-    left:150px;
+    left:143px;
     bottom:130px;
     font-size: 26px;
 }
@@ -35,8 +35,8 @@ export default {
     color:white;
     margin-left: 5px;
     position: relative;
-    left: 150px;
-    bottom:90px;
+    left: 145px;
+    bottom:80px;
     font-size: 18px;
 }
 #list h1,h2{
@@ -44,14 +44,10 @@ export default {
 }
 #list img{
     display: inline-block;
-    width: 150px;
-    height: 145px;
+    width: 140px;
+    height: 138px;
+    margin-top:5px;
+    margin-left: 2px;
 }
-.menuredbord{
-    border:9px solid red;
-    padding: -10px;
-    width:238px;
-    height: 57px;
-    transition: opacity .5s;;
-}
+
 </style>
