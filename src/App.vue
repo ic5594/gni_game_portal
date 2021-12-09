@@ -1,15 +1,14 @@
 <template>
   <div id="app">
     <Backgroundvid></Backgroundvid>
-    <Leftsidebar ref="left"></Leftsidebar>
+    <Leftsidebar></Leftsidebar>
     <Menu v-bind:currentNumberM="currentNumber" v-bind:routerlistM="routerlist"
      v-bind:goNumberM="goNumber" v-bind:indexNumberM="indexNumber"></Menu>
     <router-view v-slot="{ Component }"> 
-      <component :is="Component"  v-bind:currentNumberM="currentNumber" v-bind:routerlistM="routerlist" v-bind:goNumberM="goNumber" v-bind:indexNumberM="indexNumber"/> 
+      <component :is="Component"  v-bind:currentNumberM="currentNumber" 
+      v-bind:routerlistM="routerlist" v-bind:goNumberM="goNumber" v-bind:indexNumberM="indexNumber"/> 
     </router-view>
-
   </div>
- 
 </template>
 <script>
 import Backgroundvid from './Backgroundvid.vue'
@@ -21,8 +20,7 @@ export default {
     return{
       currentNumber:0,  //menu 인덱스 번호
       indexNumber:0,    //list컴포넌트 상하 인덱스 번호
-      goNumber:0,    //list컴포넌트 좌우 인덱스 번호
-      leftNumber:0,    
+      goNumber:0,    //list컴포넌트 좌우 인덱스 번호    
       routerlist:[
         { path: '/'},
         { path:'/game'},
@@ -33,17 +31,6 @@ export default {
         { path:'/service'},
         { path:'/mypage'},
         { path:'/community'},
-      ],
-      menuRefList:[
-        "menu0",
-        "menu1",
-        "menu2",
-        "menu3",
-        "menu4",
-        "menu5",
-        "menu6",
-        "menu7",
-        "menu8",
       ]
     }
   },
@@ -76,11 +63,24 @@ export default {
 
         //up
         case 38 : 
+         this.indexNumber-=1
           if(this.goNumber>0){
             stop()
-            this.indexNumber-=1
-            if(this.indexNumber<0)
-              this.indexNumber==4
+            if(this.indexNumber==-1){
+              if(this.currentNumber%this.routerlist.length==0 || 
+              this.currentNumber%this.routerlist.length==1 || 
+              this.currentNumber%this.routerlist.length==7){
+                  this.indexNumber=4
+                }
+                if(this.currentNumber%this.routerlist.length==2 ||
+                this.currentNumber%this.routerlist.length==3){
+                  this.indexNumber=3
+                }
+                if(this.currentNumber%this.routerlist.length==6){
+                  this.indexNumber=5
+                }
+    
+            }
           }
           else{
             this.currentNumber-=1
@@ -94,12 +94,7 @@ export default {
             this.initialization()
           }
 
-
-
-
-
           console.log("gonumber",this.goNumber,"indexnumber",this.indexNumber)
-          
           break;
 
          //down
@@ -114,18 +109,21 @@ export default {
             this.initialization()
           }
 
-
-
-
-
-            console.log("gonumber",this.goNumber,"indexnumber",this.indexNumber)
+          console.log("gonumber",this.goNumber,"indexnumber",this.indexNumber)
           break;
 
-
-        
         //right
         case 39:
         this.goNumber+=1
+        if(this.goNumber==3){
+          this.stay()
+        }
+        else if(this.currentNumber==4 || this.currentNumber==5){
+          if(this.goNumber==2){
+            this.goNumber=1
+          }
+        }
+        
         console.log("gonumber",this.goNumber,"indexnumber",this.indexNumber)
         break;
 
@@ -142,25 +140,15 @@ export default {
     }
   },
   methods:{
-    gopage:function(number){
-      if(this.currentNumberM%this.routerlistM.length==(number)){
-        if(this.goNumber>0){
-          return{ intomenu: true}
-        }
-        else{
-        return{ menuredbord:true }}
-      }
-
-      else{
-        return{ menuredbord:false }
-      }
-    },
     pushrouterlist:function(){      //메뉴이동 메소드
       this.$router.push(this.routerlist[this.currentNumber%this.routerlist.length])
     },
     initialization:function(){    //여러 인덱스 값 초기화
       this.indexNumber=0
       this.goNumber=0
+    },
+    stay:function(){
+      this.goNumber=2
     }
   }
 }
@@ -174,15 +162,5 @@ export default {
   z-index: 1;
   height: 100%;
 }
-.redborder{
-  border:red solid 3px;
-}
-.intomenu{
-  border-top: solid gray 9px;
-  border-bottom: solid gray 9px;
-  border-left:none;
-  border-right:none;
-  width:238px;
-  height:57px;
-}
+
 </style>
