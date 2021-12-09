@@ -22,7 +22,7 @@ export default {
     z-index: 5;
     padding-left: 20px;
     position: relative;
-    left: 30px;
+    left: 25px;
 }
 
 
