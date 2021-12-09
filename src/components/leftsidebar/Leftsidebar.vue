@@ -1,12 +1,12 @@
 <template>
     <div id="leftside">
-        <div class="image">          
+            <div class="image">          
         </div>
     </div>
 </template>
 <script>
 export default {
-    
+    props:["goNumberM"]
 }
 </script>
 <style>
