@@ -4,9 +4,7 @@ import Game from '../views/game/Game.vue'
 import Dropanime from '../views/anime/Dropdownanime.vue'
 import Kids from '../views/kids/Kids.vue'
 import Event from '../views/event/Event.vue'
-import Evententer from '../views/event/Evententer.vue'
 import Notice from '../views/notice/Notice.vue'
-import Noticeenter from '../views/notice/Noticeenter.vue'
 import Service from '../views/service/Service.vue'
 import Mypage from '../views/mypage/Mypage.vue'
 import Community from '../views/community/Community.vue'
@@ -38,19 +36,9 @@ const routes = [{
         component: Event
     },
     {
-        path: '/evententer',
-        name: 'Evententer',
-        component: Evententer
-    },
-    {
         path: '/notice',
         name: 'Notice',
         component: Notice
-    },
-    {
-        path: '/noticeenter',
-        name: 'Noticeenter',
-        component: Noticeenter
     },
     {
         path: '/service',
