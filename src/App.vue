@@ -1,12 +1,12 @@
 <template>
   <div id="app">
     <Backgroundvid></Backgroundvid>
-    <Leftsidebar></Leftsidebar>
+    <Leftsidebar v-bind:leftRightNumberM="leftRightNumber"></Leftsidebar>
     <Menu v-bind:currentNumberM="currentNumber" v-bind:routerlistM="routerlist"
-     v-bind:goNumberM="goNumber" v-bind:indexNumberM="indexNumber"></Menu>
+     v-bind:leftRightNumberM="leftRightNumber" v-bind:upDownNumberM="upDownNumber"></Menu>
     <router-view v-slot="{ Component }"> 
       <component :is="Component"  v-bind:currentNumberM="currentNumber" 
-      v-bind:routerlistM="routerlist" v-bind:goNumberM="goNumber" v-bind:indexNumberM="indexNumber"/> 
+      v-bind:routerlistM="routerlist" v-bind:leftRightNumberM="leftRightNumber" v-bind:upDownNumberM="upDownNumber"/> 
     </router-view>
   </div>
 </template>
@@ -19,8 +19,8 @@ export default {
   data:function(){
     return{
       currentNumber:0,  //menu 인덱스 번호
-      indexNumber:0,    //list컴포넌트 상하 인덱스 번호
-      goNumber:0,    //list컴포넌트 좌우 인덱스 번호    
+      upDownNumber:0,    //list컴포넌트 상하 인덱스 번호
+      leftRightNumber:0,      //list컴포넌트 좌우 인덱스 번호    
       routerlist:[
         { path: '/'},
         { path:'/game'},
@@ -40,9 +40,9 @@ export default {
     'Menu':Menu
   },
   computed(){
-    if(this.goNumber==0){
+    if(this.leftRightNumber==0){
       return{
-        indexNumber:0
+        upDownNumber:0
       }
     }
   },
@@ -53,36 +53,39 @@ export default {
       switch(event.keyCode){
         //enter
         case 13:
-
         break
 
         //esc
         case 27:
-
         break
 
         //up
         case 38 : 
-         this.indexNumber-=1
-          if(this.goNumber>0){
+         this.upDownNumber-=1
+          if(this.leftRightNumber>0){                
             stop()
-            if(this.indexNumber==-1){
+            if(this.upDownNumber==-1){                 //세부 메뉴 인덱스  값 고정
               if(this.currentNumber%this.routerlist.length==0 || 
               this.currentNumber%this.routerlist.length==1 || 
               this.currentNumber%this.routerlist.length==7){
-                  this.indexNumber=4
-                }
-                if(this.currentNumber%this.routerlist.length==2 ||
+                this.upDownNumber=4
+              }
+              else if(this.currentNumber%this.routerlist.length==2 ||
                 this.currentNumber%this.routerlist.length==3){
-                  this.indexNumber=3
-                }
-                if(this.currentNumber%this.routerlist.length==6){
-                  this.indexNumber=5
-                }
-    
+                this.upDownNumber=3
+              }
+              else if(this.currentNumber%this.routerlist.length==6){
+                this.upDownNumber=5
+              }
+              else if(this.currentNumber%this.routerlist.length==8){
+                this.upDownNumber=2
+              }
             }
           }
-          else{
+          else if(this.leftRightNumber<0){   //leftsidebar focus이동시 상하키 고정
+            stop()
+          } 
+          else{                       //menu 이동
             this.currentNumber-=1
             if(this.currentNumber<0){
               this.currentNumber=this.routerlist.length-1
@@ -91,50 +94,56 @@ export default {
             else{
                 this.pushrouterlist()
             }
-            this.initialization()
+            this.initialization()   //menu시 상하,좌우 인덱스 값 초기화
           }
 
-          console.log("gonumber",this.goNumber,"indexnumber",this.indexNumber)
+          console.log("leftRightNumber",this.leftRightNumber,
+          "upDownNumber",this.upDownNumber)
           break;
 
          //down
         case 40:
-          if(this.goNumber>0){
+          if(this.leftRightNumber>0){
             stop()
-            this.indexNumber+=1
+            this.upDownNumber+=1
           }
-          else{
+          else if(this.leftRightNumber<0){       //leftsidebar focus이동시 상하키 고정
+            stop()
+          } 
+          else{                           //menu 이동
             this.currentNumber+=1
             this.pushrouterlist()
             this.initialization()
           }
 
-          console.log("gonumber",this.goNumber,"indexnumber",this.indexNumber)
-          break;
+          console.log("leftRightNumber",this.leftRightNumber,
+          "upDownNumber",this.upDownNumber)
+        break;
 
         //right
         case 39:
-        this.goNumber+=1
-        if(this.goNumber==3){
-          this.stay()
-        }
-        else if(this.currentNumber==4 || this.currentNumber==5){
-          if(this.goNumber==2){
-            this.goNumber=1
+          this.leftRightNumber+=1                //좌우인덱스값 증가
+          if(this.leftRightNumber==3){
+            this.leftRightNumber=2
           }
-        }
-        
-        console.log("gonumber",this.goNumber,"indexnumber",this.indexNumber)
+          for(var a=2;a<9;a++){
+            this.leftRightNumberstop(a)
+          }
+          console.log("leftRightNumber",this.leftRightNumber,
+          "upDownNumber",this.upDownNumber)
         break;
-
-
+ 
         //left
         case 37:
-          this.goNumber-=1
-          if(this.goNumber==0){
+          this.leftRightNumber-=1              //좌우인덱스값 감소
+          if(this.leftRightNumber==0){         //좌우인덱스값이 0이되면 다른 인덱스 값 초기화
               this.initialization()
           }
-         console.log("gonumber",this.goNumber,"indexnumber",this.indexNumber)
+          else if(this.leftRightNumber<-1){
+            this.leftRightNumber=-1
+          }
+          console.log("leftRightNumber",this.leftRightNumber,
+          "upDownNumber",this.upDownNumber)
         break;
       }  
     }
@@ -143,18 +152,20 @@ export default {
     pushrouterlist:function(){      //메뉴이동 메소드
       this.$router.push(this.routerlist[this.currentNumber%this.routerlist.length])
     },
-    initialization:function(){    //여러 인덱스 값 초기화
-      this.indexNumber=0
-      this.goNumber=0
+    leftRightNumberstop(number){
+      if(this.currentNumber==(number)){   //세부 메뉴에서 오른쪽으로 더 안가지게 고정
+        if(this.leftRightNumber==2)
+          this.leftRightNumber=1
+      }
     },
-    stay:function(){
-      this.goNumber=2
+    initialization:function(){    //여러 인덱스 값 초기화
+      this.upDownNumber=0
+      this.leftRightNumber=0
     }
   }
 }
 </script>
 <style>
-
 #app input{
   float:right;
   background-color: white;
@@ -162,5 +173,4 @@ export default {
   z-index: 1;
   height: 100%;
 }
-
 </style>

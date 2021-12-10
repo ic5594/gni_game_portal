@@ -10,18 +10,18 @@ export default {
     components:{
         'No':No
     },
-    props:["goNumberM","indexNumberM","currentNumberM","routerlistM"],
+    props:["leftRightNumberM","currentNumberM","routerlistM"],
     methods:{
         goredNo:function(){
             if(this.currentNumberM%this.routerlistM.length==4){
-                if(this.goNumberM==1){
+                if(this.leftRightNumberM==1){
                         return{
-                            goredbord:true
+                            eventredbord:true
                         }
                     }
                     else
                         return{
-                            goredbord:false
+                            eventredbord:false
                         }
             }
         }
@@ -29,10 +29,10 @@ export default {
 }
 </script>
 <style>
-.goredbord{
-    padding:-5px;
-    margin: -16px;
-    border:3px solid red;
+.eventredbord{
+   border: red solid 2px;
+   position: relative;
+   right: 3px;
 }
 
 </style>

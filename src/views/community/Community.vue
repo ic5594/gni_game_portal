@@ -7,12 +7,12 @@
 </template>
 <script>
 export default {
-    props:["goNumberM","indexNumberM","currentNumberM","routerlistM"],
+    props:["leftRightNumberM","upDownNumberM","currentNumberM","routerlistM"],
     methods:{
         communityredbord:function(number1,number2){
             if(this.currentNumberM%this.routerlistM.length==8){
-                if(this.indexNumberM%3==(number1)){
-                    if(this.goNumberM==(number2)){
+                if(this.upDownNumberM%3==(number1)){
+                    if(this.leftRightNumberM==(number2)){
                         return{
                             communityedbord:true
                         }

@@ -15,12 +15,12 @@
 </template>
 <script>
 export default {
-    props:["goNumberM","indexNumberM","currentNumberM","routerlistM"],
+    props:["leftRightNumberM","upDownNumberM","currentNumberM","routerlistM"],
     methods:{
         mypageredbord:function(number1,number2){
             if(this.currentNumberM%this.routerlistM.length==7){
-                if(this.indexNumberM%5==(number1)){
-                    if(this.goNumberM==(number2)){
+                if(this.upDownNumberM%5==(number1)){
+                    if(this.leftRightNumberM==(number2)){
                         return{
                             mypageredbord:true
                         }

@@ -2,6 +2,7 @@
   <div id="menu">
     <div class="menu-img"></div>
       <ul>
+        
         <Menuli v-bind:menu="menulist[0]" v-bind:class="menu(0)"></Menuli>
         <hr>
         <Menuli v-bind:menu="menulist[1]" v-bind:class="menu(1)"></Menuli>
@@ -18,8 +19,7 @@
         <hr>
         <Menuli v-bind:menu="menulist[7]" v-bind:class="menu(7)"></Menuli>
         <hr>
-        <Menuli v-bind:menu="menulist[8]" v-bind:class="menu(8)"></Menuli>
-        
+        <Menuli v-bind:menu="menulist[8]" v-bind:class="menu(8)"></Menuli> 
       </ul>
   </div>
 </template>
@@ -30,7 +30,7 @@ export default {
   components:{
     'Menuli':Menuli
   },
-  props:["goNumberM","indexNumberM","currentNumberM","routerlistM"],
+  props:["leftRightNumberM","currentNumberM","routerlistM"],
   data:function(){
     return{
       menulist:[
@@ -43,17 +43,16 @@ export default {
         "고객센터",
         "마이페이지",
         "커뮤니티"
-      ],
-      
+      ]
     }
   },
   methods:{
     menu:function(number){
       if(this.currentNumberM%this.routerlistM.length==(number)){
-        if(this.goNumberM==0){
+        if(this.leftRightNumberM==0){
           return{ menuredbord:true }
         }
-        else if(this.goNumberM!=0 ){
+        else if(this.leftRightNumberM!=0 ){
             return{ intomenu: true}
         }
       }
@@ -61,8 +60,7 @@ export default {
         return{ menuredbord:false }
       }
       
-    },
-    
+    }
   }
 }
 </script>
@@ -78,7 +76,6 @@ export default {
 		height:auto;
     padding-bottom: 4.7%;
 }
-
 #menu h1{
     color: white;
     position: relative;

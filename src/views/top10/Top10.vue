@@ -22,12 +22,12 @@ export default {
     'List':List,
     'Top10numtag':Top10numtag ,
     },
-    props:["goNumberM","indexNumberM","currentNumberM","routerlistM"],
+    props:["leftRightNumberM","upDownNumberM","currentNumberM","routerlistM"],
     methods:{
        topredbord:function(number1,number2){
             if(this.currentNumberM%this.routerlistM.length==0){
-                if(this.indexNumberM%5==(number1)){
-                    if(this.goNumberM==(number2)){
+                if(this.upDownNumberM%5==(number1)){
+                    if(this.leftRightNumberM==(number2)){
                         return{
                             topredbord:true
                         }
