@@ -1,7 +1,7 @@
 <template>
     <div id="no">
         <div class="nono">
-        <h1>등록된 정보가 없습니다.</h1>
+        
         </div>
     </div>
 </template>
@@ -13,23 +13,18 @@ export default {
 <style>
 #no{
     float: left;
-    width: 100px;
     width: 300px;
-    height: 400px;
+    height: 300px;
     background-color: black;
     opacity: 0.8;
-    margin-left: 15px;
+    margin-left: 10px;
     margin-top: 235px;
-    border-radius: 5%;
-}
-#no h1{
-    color:white;
-    font-size: 25px;
-    text-align: center;
-    margin-top:170px;
-}
-.image {
-  position:relative;
+    border-radius: 5.5%;
+    background-image: url(http://61.251.167.74/ktweb/gniportal/resource/event_none.png);
+    background-size:100% 100%;
+    background-repeat: no-repeat;
+    position: relative;
+    top:100px;
 }
 
 </style>
