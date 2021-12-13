@@ -1,6 +1,6 @@
 <template>
-    <div id="goldrunner">
-        <img src="https://www.gnigame.co.kr/wp-content/uploads/2018/05/Goldrunner-gallery1.jpg">
+    <div id="heroallstarz">
+        <img src="../../assets/heroallstarz.png">
     </div>
 </template>
 <script>
@@ -9,17 +9,17 @@ export default {
 }
 </script>
 <style>
-#goldrunner{
+#heroallstarz{
     z-index: 100;
     width: 1920px;
     height: 970px;
     position: fixed;
 }
-#goldrunner img{
+#heroallstarz img{
     width: 100%;
     height: 100%;
 }
-#goldrunner p{
+#heroallstarz p{
     color:black;   
 }
 </style>

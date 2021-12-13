@@ -1,6 +1,6 @@
 <template>
-    <div id="goldrunner">
-        <img src="https://www.gnigame.co.kr/wp-content/uploads/2018/05/Goldrunner-gallery1.jpg">
+    <div id="herolegend">
+        <img src="https://www.gnigame.co.kr/wp-content/uploads/2018/05/LegendofHero-gallery1.jpg">
     </div>
 </template>
 <script>
@@ -9,17 +9,17 @@ export default {
 }
 </script>
 <style>
-#goldrunner{
+#herolegend{
     z-index: 100;
     width: 1920px;
     height: 970px;
     position: fixed;
 }
-#goldrunner img{
+#herolegend img{
     width: 100%;
     height: 100%;
 }
-#goldrunner p{
+#herolegend p{
     color:black;   
 }
 </style>

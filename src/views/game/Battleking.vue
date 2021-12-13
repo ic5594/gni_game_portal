@@ -1,6 +1,6 @@
 <template>
-    <div id="goldrunner">
-        <img src="https://www.gnigame.co.kr/wp-content/uploads/2018/05/Goldrunner-gallery1.jpg">
+    <div id="battleking">
+        <img src="../../assets/battleking.png">
     </div>
 </template>
 <script>
@@ -9,17 +9,17 @@ export default {
 }
 </script>
 <style>
-#goldrunner{
+#battleking{
     z-index: 100;
     width: 1920px;
     height: 970px;
     position: fixed;
 }
-#goldrunner img{
+#battleking img{
     width: 100%;
     height: 100%;
 }
-#goldrunner p{
+#battleking p{
     color:black;   
 }
 </style>
