@@ -31,6 +31,29 @@ export default {
         { path:'/service'},
         { path:'/mypage'},
         { path:'/community'},
+      ],
+      top10data:['/starmon',
+      '/goldrunner',
+      '/matgo',
+      '/spiritfrined',
+      '/offensehero',
+      '/heroallstarz',
+      '/herolegend',
+      '/jungletower',
+      '/toyracing',
+      '/cheezerun'
+      ],
+      gamedata:[
+      '/matgo',
+      '/heroallstarz',
+      '/goshooter',
+      '/battleking',
+      '/toyracing',
+      '/petmarble',
+      '/herolegend',
+      '/starmon',
+      '/cheezerun',
+      '/goldrunner'
       ]
     }
   },
@@ -53,10 +76,33 @@ export default {
       switch(event.keyCode){
         //enter
         case 13:
+          if(this.currentNumber%this.routerlist.length==0){
+            for(var s=0;s<this.top10data.length/2;s++){
+              this.top10entermenu1(s,1)
+            }
+            for(var x=0;x<this.top10data.length/2;x++){
+              this.top10entermenu2(x,2)
+            }
+          }
+          else if(this.currentNumber%this.routerlist.length==1){
+            for(var b=0;b<this.gamedata.length/2;b++){
+              this.gameentermenu1(b,1)
+            }
+            for(var c=0;c<this.gamedata.length/2;c++){
+              this.gameentermenu2(c,2)
+            }
+          }
         break
 
         //esc
         case 27:
+           if(this.currentNumber%this.routerlist.length==0){
+              this.$router.push( { path: '/' })
+            }
+            else if(this.currentNumber%this.routerlist.length==1){
+              this.$router.push({ path: '/game'})
+            }
+            
         break
 
         //up
@@ -151,6 +197,26 @@ export default {
   methods:{
     pushrouterlist:function(){      //메뉴이동 메소드
       this.$router.push(this.routerlist[this.currentNumber%this.routerlist.length])
+    },
+    top10entermenu1:function(number1){
+      if(this.upDownNumber%5==(number1) && this.leftRightNumber==1){
+              this.$router.push(this.top10data[(number1)])
+            }
+    },
+    top10entermenu2:function(number1){
+      if(this.upDownNumber%5==(number1) && this.leftRightNumber==2){
+              this.$router.push(this.top10data[(number1+5)])
+            }
+    },
+    gameentermenu1:function(number1){
+      if(this.upDownNumber%5==(number1) && this.leftRightNumber==1){
+              this.$router.push(this.gamedata[(number1)])
+            }
+    },
+    gameentermenu2:function(number1){
+      if(this.upDownNumber%5==(number1) && this.leftRightNumber==2){
+              this.$router.push(this.gamedata[(number1+5)])
+            }
     },
     leftRightNumberstop(number){
       if(this.currentNumber==(number)){   //세부 메뉴에서 오른쪽으로 더 안가지게 고정
