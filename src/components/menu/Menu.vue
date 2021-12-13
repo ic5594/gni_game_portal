@@ -2,7 +2,6 @@
   <div id="menu">
     <div class="menu-img"></div>
       <ul>
-        
         <Menuli v-bind:menu="menulist[0]" v-bind:class="menu(0)"></Menuli>
         <hr>
         <Menuli v-bind:menu="menulist[1]" v-bind:class="menu(1)"></Menuli>
