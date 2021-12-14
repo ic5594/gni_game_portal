@@ -19,7 +19,14 @@ import Kids from '../views/kids/Kids.vue'
 import Event from '../views/event/Event.vue'
 import Notice from '../views/notice/Notice.vue'
 import Service from '../views/service/Service.vue'
+import Service1 from '../views/service/Service1.vue'
+import Service2 from '../views/service/Service2.vue'
+import Service3 from '../views/service/Service3.vue'
+import Service4 from '../views/service/Service4.vue'
+import Service5 from '../views/service/Service5.vue'
+import Service6 from '../views/service/Service6.vue'
 import Mypage from '../views/mypage/Mypage.vue'
+import Mypage1 from '../views/mypage/Mypage1.vue'
 import Community from '../views/community/Community.vue'
 
 
@@ -125,9 +132,44 @@ const routes = [{
         component: Service
     },
     {
+        path: '/service1',
+        name: 'Service1',
+        component: Service1
+    },
+    {
+        path: '/service2',
+        name: 'Service2',
+        component: Service2
+    },
+    {
+        path: '/service3',
+        name: 'Service3',
+        component: Service3
+    },
+    {
+        path: '/service4',
+        name: 'Service4',
+        component: Service4
+    },
+    {
+        path: '/service5',
+        name: 'Service5',
+        component: Service5
+    },
+    {
+        path: '/service6',
+        name: 'Service6',
+        component: Service6
+    },
+    {
         path: '/mypage',
         name: 'Mypage',
         component: Mypage
+    },
+    {
+        path: '/mypage1',
+        name: 'Mypage1',
+        component: Mypage1
     },
     {
         path: '/community',
