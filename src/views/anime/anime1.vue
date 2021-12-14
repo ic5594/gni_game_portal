@@ -10,6 +10,7 @@
     <List title="어둠의 자식들" type="드라마" about="Dogaji/조세윤" imageurL="http://61.251.167.77/webportal2018/comic_master/20181210122316575.png"></List>
     <List title="보스 인 스쿨" type="학원 액션" about="이훈영/김의권" imageurL="http://61.251.167.77/webportal2018/comic_master/20181210113252114.png"></List>
     <List title="작살무개녕" type="일상" about="냥치기/냥치기" imageurL="http://61.251.167.77/webportal2018/comic_master/20181210121956316.png"></List>
+    
     </div>
 </template>
 <script>
@@ -25,5 +26,8 @@ export default {
 #pupular{
     float:left;
     width:900px;
+    position: relative;
+    left:280px;
+    bottom: 420px;
 }
 </style>
