@@ -1,16 +1,16 @@
 <template>
     <div id="mypage">
-        <ul>
-            <li v-bind:class="mypageredbord(0,1)">내정보 확인</li>
-            <hr>
-            <li v-bind:class="mypageredbord(1,1)">이용약관</li>
-            <hr>
-            <li v-bind:class="mypageredbord(2,1)">개인정보취급</li>
-            <hr>
-            <li v-bind:class="mypageredbord(3,1)">결제내역확인</li>
-            <hr>
-            <li v-bind:class="mypageredbord(4,1)">아이템 사용내역</li>
-        </ul>
+        <div class="mypage" style="display: block;">
+            <img id="item" v-bind:class="mypageredbord(0,1)" src="http://61.251.167.74/ktweb/gniportal/resource/mypage_text_01.png" style="top: 0px;">
+            <img id="item" src="http://61.251.167.74/ktweb/gniportal/resource/mypage_text_01.png" style="display: none; top: 0px;">
+            <img id="item" v-bind:class="mypageredbord(1,1)" src="http://61.251.167.74/ktweb/gniportal/resource/mypage_text_02.png" style="top: 50px;">
+            <img id="item" src="http://61.251.167.74/ktweb/gniportal/resource/mypage_text_02.png" style="display: none; top: 50px;">
+            <img id="item" v-bind:class="mypageredbord(2,1)" src="http://61.251.167.74/ktweb/gniportal/resource/mypage_text_03.png" style="top: 100px;">
+            <img id="item" src="http://61.251.167.74/ktweb/gniportal/resource/mypage_text_03.png" style="display: none; top: 100px;">
+            <img id="item" v-bind:class="mypageredbord(3,1)" src="http://61.251.167.74/ktweb/gniportal/resource/mypage_text_04.png" style="top: 150px;">
+            <img id="item" src="http://61.251.167.74/ktweb/gniportal/resource/mypage_text_04.png" style="display: none; top: 150px;">
+            <img id="item" v-bind:class="mypageredbord(4,1)" src="http://61.251.167.74/ktweb/gniportal/resource/mypage_text_05.png" style="top: 200px;">
+            <img id="item" src="http://61.251.167.74/ktweb/gniportal/resource/mypage_text_06.png" style="display: none; top: 200px;"></div>
     </div>
 </template>
 <script>
@@ -40,23 +40,17 @@ export default {
     float:left;
     background-color:black;
     opacity: 0.8;
-    margin-left: 5px;
-    margin-top: 405px;
-    text-align: center;
-    width: 400px;
+    margin-left: 10px;
+    margin-top: 470px;
+    width: 210px;
+    height: 320px;
+    background-image: url(http://61.251.167.74/ktweb/gniportal/resource/menu_back2.png);
+    background-repeat: no-repeat;
+    background-size: cover;
 }
-#mypage ul{
-    margin-right: 10px;
-    padding-left:10px
-}
-#mypage ul li{
-    color:white;
-    font-size: 40px;
-    list-style: none;
-      
-}
+
 .mypageredbord{
-    background-image: url(http://61.251.167.74/ktweb/gniportal/resource/selsect_customer_info.png);
+    background-image: url(http://61.251.167.74/ktweb/gniportal/resource/menu_select_bar.png);
     background-repeat: no-repeat;
     background-size:100% 100%;  
 }
