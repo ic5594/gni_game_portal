@@ -9,12 +9,17 @@
             <hr>
             <li v-bind:class="animeredbord(3,1)">전체만화</li>
             <hr>
-            
+            <Anime></Anime>
         </ul>
     </div>
 </template>
 <script>
+import Anime from '../anime/anime1.vue'
+
 export default {
+    components:{ 
+        'Anime':Anime
+    },
     props:["leftRightNumberM","upDownNumberM","currentNumberM","routerlistM"],
     methods:{
         animeredbord:function(number1,number2){
@@ -39,7 +44,7 @@ export default {
 #anime{
     float: left;
     background-color: black;
-    opacity: 0.78;
+    opacity: 0.8;
     width: 300px;
     height: 809px;
     padding-top: 160px;
