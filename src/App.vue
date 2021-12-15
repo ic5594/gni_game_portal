@@ -16,6 +16,11 @@ import Leftsidebar from './components/leftsidebar/Leftsidebar.vue'
 import Menu from './components/menu/Menu.vue'
 
 export default {
+  components:{
+    'Leftsidebar':Leftsidebar,
+    'Backgroundvid':Backgroundvid,
+    'Menu':Menu
+  },
   data:function(){
     return{
       currentNumber:0,  //menu 인덱스 번호
@@ -69,14 +74,8 @@ export default {
         '/mypage3',
         '/mypage4',
         '/mypage5',
-      ]
-      
+      ] 
     }
-  },
-  components:{
-    'Leftsidebar':Leftsidebar,
-    'Backgroundvid':Backgroundvid,
-    'Menu':Menu
   },
   computed(){
     if(this.leftRightNumber==0){
@@ -108,14 +107,14 @@ export default {
               this.gameentermenu2(d,2)
             }
           }
+          
           else if(this.currentNumber%this.routerlist.length==6){     //service 세부메뉴 이동
             if(this.leftRightNumber==1){
               for(var e=0;e<this.servicedata.length;e++){
                 this.serviceentermenu(e)
               }
             }
-          }
-          else if(this.currentNumber%this.routerlist.length==7){     //service 세부메뉴 이동
+          }else if(this.currentNumber%this.routerlist.length==7){     //mypage 세부메뉴 이동
             if(this.leftRightNumber==1){
               for(var f=0;f<this.mypagedata.length;f++){
                 this.mypageentermenu(f)
@@ -147,8 +146,8 @@ export default {
             stop()
             if(this.upDownNumber==-1){                 //세부 메뉴 인덱스  값 고정
               if(this.currentNumber%this.routerlist.length==0 || 
-              this.currentNumber%this.routerlist.length==1 || 
-              this.currentNumber%this.routerlist.length==7){
+                this.currentNumber%this.routerlist.length==1 || 
+                this.currentNumber%this.routerlist.length==7){
                 this.upDownNumber=4
               }
               else if(this.currentNumber%this.routerlist.length==2 ||
@@ -163,11 +162,10 @@ export default {
               }
             }
           }
-          
           else if(this.leftRightNumber<0){   //leftsidebar focus이동시 상하키 고정
             stop()
           } 
-          else{                       //menu 이동
+          else{                              //menu 이동
             this.currentNumber-=1
             if(this.currentNumber<0){
               this.currentNumber=this.routerlist.length-1
@@ -176,11 +174,11 @@ export default {
             else{
                 this.pushrouterlist()
             }
-            this.initialization()   //menu시 상하,좌우 인덱스 값 초기화
+            this.initialization()           //menu시 상하,좌우 인덱스 값 초기화
           }
 
-          console.log("leftRightNumber",this.leftRightNumber,
-          "upDownNumber",this.upDownNumber)
+          console.log("leftRight",this.leftRightNumber,
+          "upDown",this.upDownNumber)
           break;
 
          //down
@@ -189,17 +187,17 @@ export default {
             stop()
             this.upDownNumber+=1
           }
-          else if(this.leftRightNumber<0){       //leftsidebar focus이동시 상하키 고정
+          else if(this.leftRightNumber<0){     //leftsidebar focus이동시 상하키 고정
             stop()
           } 
-          else{                           //menu 이동
+          else{                                //menu 이동
             this.currentNumber+=1
             this.pushrouterlist()
             this.initialization()
           }
 
-          console.log("leftRightNumber",this.leftRightNumber,
-          "upDownNumber",this.upDownNumber)
+          console.log("leftRight",this.leftRightNumber,
+          "upDown",this.upDownNumber)
         break;
 
         //right
@@ -208,12 +206,11 @@ export default {
           if(this.leftRightNumber==3){
             this.leftRightNumber=2
           }
-          
           for(var g=2;g<9;g++){                 //레프트 인덱스 3이되면 2로 가지 back해주는 함수
             this.leftRightNumberstop(g)
           }
-          console.log("leftRightNumber",this.leftRightNumber,
-          "upDownNumber",this.upDownNumber)
+          console.log("leftRight",this.leftRightNumber,
+          "upDown",this.upDownNumber)
         break;
  
         //left
@@ -225,8 +222,8 @@ export default {
           else if(this.leftRightNumber<-1){
             this.leftRightNumber=-1
           }
-          console.log("leftRightNumber",this.leftRightNumber,
-          "upDownNumber",this.upDownNumber)
+          console.log("leftRight",this.leftRightNumber,
+          "upDown",this.upDownNumber)
         break;
       }  
     }
