@@ -16,6 +16,7 @@ import Battleking from '../views/game/Battleking.vue'
 import Petmarble from '../views/game/Petmarble.vue'
 import Dropanime from '../views/anime/Dropdownanime.vue'
 import Kids from '../views/kids/Kids.vue'
+import Kidspop from '../views/kids/Kids.vue'
 import Event from '../views/event/Event.vue'
 import Notice from '../views/notice/Notice.vue'
 import Service from '../views/service/Service.vue'
@@ -27,6 +28,10 @@ import Service5 from '../views/service/Service5.vue'
 import Service6 from '../views/service/Service6.vue'
 import Mypage from '../views/mypage/Mypage.vue'
 import Mypage1 from '../views/mypage/Mypage1.vue'
+import Mypage2 from '../views/mypage/Mypage2.vue'
+import Mypage3 from '../views/mypage/Mypage3.vue'
+import Mypage4 from '../views/mypage/Mypage4.vue'
+import Mypage5 from '../views/mypage/Mypage5.vue'
 import Community from '../views/community/Community.vue'
 
 
@@ -112,6 +117,11 @@ const routes = [{
         component: Dropanime
     },
     {
+        path: '/kidspop',
+        name: 'Kidspop',
+        component: Kidspop
+    },
+    {
         path: '/kids',
         name: 'Kids',
         component: Kids
@@ -170,6 +180,26 @@ const routes = [{
         path: '/mypage1',
         name: 'Mypage1',
         component: Mypage1
+    },
+    {
+        path: '/mypage2',
+        name: 'Mypage2',
+        component: Mypage2
+    },
+    {
+        path: '/mypage3',
+        name: 'Mypage3',
+        component: Mypage3
+    },
+    {
+        path: '/mypage4',
+        name: 'Mypage4',
+        component: Mypage4
+    },
+    {
+        path: '/mypage5',
+        name: 'Mypage5',
+        component: Mypage5
     },
     {
         path: '/community',
