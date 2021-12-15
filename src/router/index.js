@@ -16,7 +16,6 @@ import Battleking from '../views/game/Battleking.vue'
 import Petmarble from '../views/game/Petmarble.vue'
 import Dropanime from '../views/anime/Dropdownanime.vue'
 import Kids from '../views/kids/Kids.vue'
-import Kidspop from '../views/kids/Kids.vue'
 import Event from '../views/event/Event.vue'
 import Notice from '../views/notice/Notice.vue'
 import Service from '../views/service/Service.vue'
@@ -115,11 +114,6 @@ const routes = [{
         path: '/dropanime',
         name: 'Dropanime',
         component: Dropanime
-    },
-    {
-        path: '/kidspop',
-        name: 'Kidspop',
-        component: Kidspop
     },
     {
         path: '/kids',
