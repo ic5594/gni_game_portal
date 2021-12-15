@@ -58,7 +58,6 @@ export default {
       else{
         return{ menuredbord:false }
       }
-      
     }
   }
 }
