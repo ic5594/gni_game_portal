@@ -3,7 +3,7 @@
     <Backgroundvid></Backgroundvid>
     <Leftsidebar v-bind:leftRightNumberM="leftRightNumber"></Leftsidebar>
     <Menu v-bind:currentNumberM="currentNumber" v-bind:routerlistM="routerlist"
-     v-bind:leftRightNumberM="leftRightNumber" v-bind:upDownNumberM="upDownNumber"></Menu>
+    v-bind:leftRightNumberM="leftRightNumber" v-bind:upDownNumberM="upDownNumber"></Menu>
     <router-view v-slot="{ Component }"> 
       <component :is="Component"  v-bind:currentNumberM="currentNumber" 
       v-bind:routerlistM="routerlist" v-bind:leftRightNumberM="leftRightNumber" v-bind:upDownNumberM="upDownNumber"/> 
@@ -36,51 +36,51 @@ export default {
         { path:'/service'},
         { path:'/mypage'},
         { path:'/community'},
-      ],
-      top10data:['/starmon',
-      '/goldrunner',
-      '/matgo',
-      '/spiritfrined',
-      '/offensehero',
-      '/heroallstarz',
-      '/herolegend',
-      '/jungletower',
-      '/toyracing',
-      '/cheezerun'
-      ],
-      gamedata:[
-      '/matgo',
-      '/heroallstarz',
-      '/goshooter',
-      '/battleking',
-      '/toyracing',
-      '/petmarble',
-      '/herolegend',
-      '/starmon',
-      '/cheezerun',
-      '/goldrunner'
-      ],
-      servicedata:[
+        ],
+        top10data:['/starmon',
+        '/goldrunner',
+        '/matgo',
+        '/spiritfrined',
+        '/offensehero',
+        '/heroallstarz',
+        '/herolegend',
+        '/jungletower',
+        '/toyracing',
+        '/cheezerun'
+        ],
+        gamedata:[
+        '/matgo',
+        '/heroallstarz',
+        '/goshooter',
+        '/battleking',
+        '/toyracing',
+        '/petmarble',
+        '/herolegend',
+        '/starmon',
+        '/cheezerun',
+        '/goldrunner'
+        ],
+        servicedata:[
         '/service1',
         '/service2',
         '/service3',
         '/service4',
         '/service5',
         '/service6'
-      ],
-      mypagedata:[
+        ],
+        mypagedata:[
         '/mypage1',
         '/mypage2',
         '/mypage3',
         '/mypage4',
         '/mypage5',
-      ],
-      kidsdata:[
+        ],
+        kidsdata:[
         '/kidspop',
         '/tayo',
         '/pangdapang',
         '/two048'
-      ]
+        ]
     }
   },
   computed(){
@@ -240,7 +240,7 @@ export default {
     pushrouterlist:function(){      //메뉴이동 메소드
       this.$router.push(this.routerlist[this.currentNumber%this.routerlist.length])
     },
-    top10entermenu1:function(number1){
+    top10entermenu1:function(number1){//top10 세부메뉴 이동 메소드
       if(this.upDownNumber%5==(number1) && this.leftRightNumber==1){
               this.$router.push(this.top10data[(number1)])
             }
