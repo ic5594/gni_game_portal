@@ -245,22 +245,22 @@ export default {
               this.$router.push(this.top10data[(number1)])
             }
     },
-    top10entermenu2:function(number1){
+    top10entermenu2:function(number1){//top10 세부메뉴 이동 메소드
       if(this.upDownNumber%5==(number1) && this.leftRightNumber==2){
               this.$router.push(this.top10data[(number1+5)])
             }
     },
-    gameentermenu1:function(number1){
+    gameentermenu1:function(number1){//game 세부메뉴 이동 메소드
       if(this.upDownNumber%5==(number1) && this.leftRightNumber==1){
               this.$router.push(this.gamedata[(number1)])
             }
     },
-    gameentermenu2:function(number1){
+    gameentermenu2:function(number1){//game 세부메뉴 이동 메소드
       if(this.upDownNumber%5==(number1) && this.leftRightNumber==2){
               this.$router.push(this.gamedata[(number1+5)])
             }
     },
-    kidsentermenu:function(number){
+    kidsentermenu:function(number){//kids 세부메뉴 이동 메소드
       if(this.upDownNumber%this.kidsdata.length==(number)){
         this.$router.push(this.kidsdata[(number)])
       }
