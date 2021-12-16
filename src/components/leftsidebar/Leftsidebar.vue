@@ -1,6 +1,7 @@
 <template>
     <div id="leftside">
-        <img src="http://61.251.167.74/webportal2018/bnr/20210514134035259.png" id="leftimg" v-bind:class="leftredbord()">        
+        <img src="http://61.251.167.74/webportal2018/bnr/20210514134035259.png" 
+        id="leftimg" v-bind:class="leftredbord()">        
     </div>
 </template>
 <script>
