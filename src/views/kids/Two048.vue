@@ -1,6 +1,6 @@
 <template>
-    <div id="pandapang">
-        <img src="https://www.gnigame.co.kr/wp-content/uploads/2018/05/kid-gallery2.jpg">
+    <div id="two048">
+        <img src="../../assets/2048.png">
     </div>
 </template>
 <script>
@@ -9,17 +9,17 @@ export default {
 }
 </script>
 <style>
-#pandapang{
+#two048{
     z-index: 100;
     width: 1920px;
     height: 970px;
     position: fixed;
 }
-#pandapang img{
+#two048 img{
     width: 100%;
     height: 100%;
 }
-#pandapang p{
+#two048 p{
     color:black;   
 }
 </style>
