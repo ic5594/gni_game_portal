@@ -37,16 +37,16 @@ export default {
         { path:'/mypage'},
         { path:'/community'},
       ],
-        top10data:['/starmon',
-        '/goldrunner',
-        '/matgo',
-        '/spiritfrined',
-        '/offensehero',
-        '/heroallstarz',
-        '/herolegend',
-        '/jungletower',
-        '/toyracing',
-        '/cheezerun'
+      top10data:['/starmon',
+      '/goldrunner',
+      '/matgo',
+      '/spiritfrined',
+      '/offensehero',
+      '/heroallstarz',
+      '/herolegend',
+      '/jungletower',
+      '/toyracing',
+      '/cheezerun'
       ],
       gamedata:[
       '/matgo',
@@ -74,7 +74,13 @@ export default {
         '/mypage3',
         '/mypage4',
         '/mypage5',
-      ] 
+      ],
+      kidsdata:[
+        '/kidspop',
+        '/tayo',
+        '/pangdapang',
+        '/two048'
+      ]
     }
   },
   computed(){
@@ -107,7 +113,13 @@ export default {
               this.gameentermenu2(d,2)
             }
           }
-          
+           else if(this.currentNumber%this.routerlist.length==3){    //game 세부메뉴 이동
+              if(this.leftRightNumber==1){
+                for(var q=0;q<this.kidsdata.length;q++){
+                  this.kidsentermenu(q)
+              }
+            }
+          }
           else if(this.currentNumber%this.routerlist.length==6){     //service 세부메뉴 이동
             if(this.leftRightNumber==1){
               for(var e=0;e<this.servicedata.length;e++){
@@ -125,17 +137,14 @@ export default {
 
         //esc
         case 27:
-           if(this.currentNumber%this.routerlist.length==0){
-              this.$router.push( { path: '/' })
+           for(var p=0;p<2;p++){
+             this.escmenu(p)
+           }
+           if(this.currentNumber%this.routerlist.length==3){
+              this.$router.push({ path: '/kids'})
             }
-            else if(this.currentNumber%this.routerlist.length==1){
-              this.$router.push({ path: '/game'})
-            }
-            else if(this.currentNumber%this.routerlist.length==6){
-              this.$router.push({ path: '/service'})
-            }
-            else if(this.currentNumber%this.routerlist.length==7){
-              this.$router.push({ path: '/mypage'})
+            for(var o=6;o<8;o++){
+              this.escmenu(o)
             }
         break
 
@@ -195,7 +204,6 @@ export default {
             this.pushrouterlist()
             this.initialization()
           }
-
           console.log("leftRight",this.leftRightNumber,
           "upDown",this.upDownNumber)
         break;
@@ -252,6 +260,11 @@ export default {
               this.$router.push(this.gamedata[(number1+5)])
             }
     },
+    kidsentermenu:function(number){
+      if(this.upDownNumber%this.kidsdata.length==(number)){
+        this.$router.push(this.kidsdata[(number)])
+      }
+    },
     serviceentermenu:function(number){              //서비스 메뉴 라우터 이동함수
       if(this.upDownNumber%this.servicedata.length==(number)){
               this.$router.push(this.servicedata[(number)])
@@ -260,6 +273,11 @@ export default {
     mypageentermenu:function(number){              //서비스 메뉴 라우터 이동함수
       if(this.upDownNumber%this.mypagedata.length==(number)){
               this.$router.push(this.mypagedata[(number)])
+            }
+    },
+    escmenu:function(number){
+      if(this.currentNumber%this.routerlist.length==(number)){
+              this.$router.push(this.routerlist[(number)])
             }
     },
     leftRightNumberstop(number){
