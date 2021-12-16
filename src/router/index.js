@@ -16,6 +16,10 @@ import Battleking from '../views/game/Battleking.vue'
 import Petmarble from '../views/game/Petmarble.vue'
 import Dropanime from '../views/anime/Dropdownanime.vue'
 import Kids from '../views/kids/Kids.vue'
+import Kidspop from '../views/kids/Kidspop.vue'
+import Tayo from '../views/kids/Tayo.vue'
+import Pandapang from '../views/kids/Pandapang.vue'
+import Two048 from '../views/kids/Two048.vue'
 import Event from '../views/event/Event.vue'
 import Notice from '../views/notice/Notice.vue'
 import Service from '../views/service/Service.vue'
@@ -119,6 +123,26 @@ const routes = [{
         path: '/kids',
         name: 'Kids',
         component: Kids
+    },
+    {
+        path: '/kidspop',
+        name: 'Kidspop',
+        component: Kidspop
+    },
+    {
+        path: '/tayo',
+        name: 'Tayo',
+        component: Tayo
+    },
+    {
+        path: '/pangdapang',
+        name: 'Pandapang',
+        component: Pandapang
+    },
+    {
+        path: '/two048',
+        name: 'Two048',
+        component: Two048
     },
     {
         path: '/event',
