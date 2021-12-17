@@ -2,7 +2,12 @@
   <div id="menu">
     <div class="menu-img"></div>
       <ul>
-        <Menuli v-bind:menu="menulist[0]" v-bind:class="menu(0)"></Menuli>
+        <template v-for="(item, index) in menulist" :key="index" >
+         <Menuli v-bind:menu="item" v-bind:class="menu(index)"></Menuli> 
+         <hr>
+        </template>
+        <!-- <Menuli v-for="(item, index) in items" v-bind:key="item">{{item}}</Menuli> -->
+        <!-- <Menuli v-bind:menu="menulist[0]" v-bind:class="menu(0)"></Menuli>
         <hr>
         <Menuli v-bind:menu="menulist[1]" v-bind:class="menu(1)"></Menuli>
         <hr>
@@ -18,19 +23,21 @@
         <hr>
         <Menuli v-bind:menu="menulist[7]" v-bind:class="menu(7)"></Menuli>
         <hr>
-        <Menuli v-bind:menu="menulist[8]" v-bind:class="menu(8)"></Menuli> 
+        <Menuli v-bind:menu="menulist[8]" v-bind:class="menu(8)"></Menuli>  --> 
       </ul>
   </div>
 </template>
 <script>
 import Menuli from './Menuli.vue'
-
 export default {
+  // render(){
+
+  // },
   components:{
     'Menuli':Menuli
   },
   props:["leftRightNumberM","currentNumberM","routerlistM"],
-  data:function(){
+  data(){
     return{
       menulist:[
         "TOP10",
@@ -46,6 +53,11 @@ export default {
     }
   },
   methods:{
+    // menuli:function(){
+    //   for(var a=0;a<this.menulist.length;a++){
+    //       '<Menuli v-bind:menu="menulist[a] v-bind:class="menu(a)"></Menuli>'
+    //   }
+    // },
     menu:function(number){
       if(this.currentNumberM%this.routerlistM.length==(number)){
         if(this.leftRightNumberM==0){
