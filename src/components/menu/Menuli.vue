@@ -1,7 +1,6 @@
 <template>
     <div id="menuli">
-        <li>
-        {{menu}}</li>
+        <li>{{menu}}</li>
     </div>
 </template>
 <script>

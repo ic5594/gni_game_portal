@@ -1,6 +1,6 @@
 <template>
     <div id="top10">
-        <List v-bind:class="topredbord(0,1)" :style="position=fixed"  title="스마몬마스터즈" type="퍼즐" about="퍼즐과 카드 배틀이 만났다!" imageurL="http://61.251.167.74/webportal2018/app/20210504142223797.png"></List>
+        <List v-bind:class="topredbord(0,1)" title="스마몬마스터즈" type="퍼즐" about="퍼즐과 카드 배틀이 만났다!" imageurL="http://61.251.167.74/webportal2018/app/20210504142223797.png"></List>
         <List v-bind:class="topredbord(0,2)" title="히어로올스타즈" type="디팬스" about="최강의 히어로들이 모였다!" imageurL="http://61.251.167.74/webportal2018/app/20210504142152651.png"></List>
         <List v-bind:class="topredbord(1,1)" title="골드러너" type="캐주얼" about="보물을 찾아 떠나는 모험" imageurL="http://61.251.167.74/webportal2018/app/20210504142152651.png">ewq</List>
         <List v-bind:class="topredbord(1,2)" title="영웅전설" type="액션RPG" about="최강의 영웅이 되자!" imageurL="http://61.251.167.74/webportal2018/app/20210521103459832.png"></List>
