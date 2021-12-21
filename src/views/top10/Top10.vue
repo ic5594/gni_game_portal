@@ -16,6 +16,7 @@
 <script>
 import List from '../list.vue'
 import Top10numtag from './top10numtag.vue'
+import axios from 'axios'
 
 export default {
     components:{
@@ -23,6 +24,12 @@ export default {
     'Top10numtag':Top10numtag ,
     },
     props:["leftRightNumberM","upDownNumberM","currentNumberM","routerlistM"],
+    mounted:function(){
+        axios.get('../../assets/json/top10.json').then(function(response){
+            console.log(response)
+        })
+        JSON.stringify()
+    },
     methods:{
        topredbord:function(number1,number2){
             if(this.currentNumberM%this.routerlistM.length==0){
