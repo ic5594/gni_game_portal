@@ -6,24 +6,6 @@
          <Menuli v-bind:menu="item" v-bind:class="menu(index)"></Menuli> 
          <hr>
         </template>
-        <!-- <Menuli v-for="(item, index) in items" v-bind:key="item">{{item}}</Menuli> -->
-        <!-- <Menuli v-bind:menu="menulist[0]" v-bind:class="menu(0)"></Menuli>
-        <hr>
-        <Menuli v-bind:menu="menulist[1]" v-bind:class="menu(1)"></Menuli>
-        <hr>
-        <Menuli v-bind:menu="menulist[2]" v-bind:class="menu(2)"></Menuli>
-        <hr>
-        <Menuli v-bind:menu="menulist[3]" v-bind:class="menu(3)"></Menuli>
-        <hr>
-        <Menuli v-bind:menu="menulist[4]" v-bind:class="menu(4)"></Menuli>
-        <hr>
-        <Menuli v-bind:menu="menulist[5]" v-bind:class="menu(5)"></Menuli>
-        <hr>
-        <Menuli v-bind:menu="menulist[6]" v-bind:class="menu(6)"></Menuli>
-        <hr>
-        <Menuli v-bind:menu="menulist[7]" v-bind:class="menu(7)"></Menuli>
-        <hr>
-        <Menuli v-bind:menu="menulist[8]" v-bind:class="menu(8)"></Menuli>  --> 
       </ul>
   </div>
 </template>
@@ -53,11 +35,7 @@ export default {
     }
   },
   methods:{
-    // menuli:function(){
-    //   for(var a=0;a<this.menulist.length;a++){
-    //       '<Menuli v-bind:menu="menulist[a] v-bind:class="menu(a)"></Menuli>'
-    //   }
-    // },
+   
     menu:function(number){
       if(this.currentNumberM%this.routerlistM.length==(number)){
         if(this.leftRightNumberM==0){
