@@ -1,0 +1,7 @@
+[
+    { "id": "item", "src": "http://61.251.167.74/ktweb/gniportal/resource/mypage_text_01.png", "style": "top: 0px;" },
+    { "id": "item", "src": "http://61.251.167.74/ktweb/gniportal/resource/mypage_text_02.png", "style": "top: 50px;" },
+    { "id": "item", "src": "http://61.251.167.74/ktweb/gniportal/resource/mypage_text_03.png", "style": "top: 100px;" },
+    { "id": "item", "src": "http://61.251.167.74/ktweb/gniportal/resource/mypage_text_04.png", "style": "top: 150px;" },
+    { "id": "item", "src": "http://61.251.167.74/ktweb/gniportal/resource/mypage_text_05.png", "style": "top: 200px;" }
+]
