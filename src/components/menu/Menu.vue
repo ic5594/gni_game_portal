@@ -3,8 +3,8 @@
     <div class="menu-img"></div>
       <ul>
         <template v-for="(item, index) in menulist" :key="index" >
-         <Menuli  v-bind:menu="item" v-bind:class="menu(index)" ></Menuli> 
-         <hr>
+          <Menuli  v-bind:menu="item" v-bind:class="menu(index)" ></Menuli> 
+          <hr>
         </template>
         <!-- <Menuli v-for="(item, index) in items" v-bind:key="item">{{item}}</Menuli> -->
         <!-- <Menuli v-bind:menu="menulist[0]" v-bind:class="menu(0)"></Menuli>
@@ -30,9 +30,6 @@
 <script>
 import Menuli from './Menuli.vue'
 export default {
-  // render(){
-
-  // },
   components:{
     'Menuli':Menuli
   },
