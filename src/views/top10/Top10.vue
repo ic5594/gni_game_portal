@@ -1,9 +1,9 @@
 <template>
     <div id="top10">
-        <!-- <template v-for="(item,index) in top10Data" :key="index">
-            <List v-bind="item" v-bind:class="top10RedBord(index)"></List>
-        </template> -->
-        <List v-bind:class="top10RedBord(0,1)" v-bind="top10Data[0]"></List>
+        <template v-for="(item,index) in top10Index" :key="index">
+            <List v-bind="top10Data[index]" v-bind:class="top10RedBord(item)"></List>
+        </template>
+        <!-- <List v-bind:class="top10RedBord(0,1)" v-bind="top10Data[0]"></List>
         <List v-bind:class="top10RedBord(0,2)" v-bind="top10Data[1]"></List>
         <List v-bind:class="top10RedBord(1,1)" v-bind="top10Data[2]"></List>
         <List v-bind:class="top10RedBord(1,2)" v-bind="top10Data[3]"></List>
@@ -12,7 +12,7 @@
         <List v-bind:class="top10RedBord(3,1)" v-bind="top10Data[6]"></List>
         <List v-bind:class="top10RedBord(3,2)" v-bind="top10Data[7]"></List>
         <List v-bind:class="top10RedBord(4,1)" v-bind="top10Data[8]"></List>      
-        <List v-bind:class="top10RedBord(4,2)" v-bind="top10Data[9]"></List>
+        <List v-bind:class="top10RedBord(4,2)" v-bind="top10Data[9]"></List> -->
         <Top10numtag></Top10numtag>
     </div>
 </template>
@@ -45,7 +45,7 @@ export default {
     },
     props:["leftRightNumberM","upDownNumberM","currentNumberM","routerlistM"],
     mounted:function() {
-        this.axios.get('/top10.json').then(response => {
+        this.axios.get('./json/top10.json').then(response => {
             console.log(JSON.stringify(response.data))
             this.top10Data = response.data
             

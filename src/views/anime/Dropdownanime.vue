@@ -1,24 +1,30 @@
 <template>
     <div id="anime">
         <ul>
-            <li v-bind:class="animeredbord(0,1)">인기만화</li>
-            <hr>
-            <li v-bind:class="animeredbord(1,1)">업데이트</li>
-            <hr>
-            <li v-bind:class="animeredbord(2,1)">신규만화</li>
-            <hr>
-            <li v-bind:class="animeredbord(3,1)">전체만화</li>
-            <hr>
+            <template v-for="(item,index) in dropdownanimeData" :key="index">
+                <li v-bind:class="animeredbord(index,1)">{{item}}</li>
+                <hr>
+            </template>
             <Anime></Anime>
         </ul>
     </div>
 </template>
 <script>
-import Anime from '../anime/anime1.vue'
+import Anime from './anime.vue'
 
 export default {
     components:{ 
         'Anime':Anime
+    },
+    data:function(){
+        return{
+            dropdownanimeData:[
+                "인기만화",
+                "업데이트",
+                "신규만화",
+                "전체만화"
+            ]
+        }
     },
     props:["leftRightNumberM","upDownNumberM","currentNumberM","routerlistM"],
     methods:{

@@ -38,7 +38,7 @@ export default {
     },
     props:["leftRightNumberM","upDownNumberM","currentNumberM","routerlistM"],
     mounted:function(){
-        this.axios.get('/game.json').then(response => {
+        this.axios.get('./json/game.json').then(response => {
             console.log(JSON.stringify(response.data))
             this.gameData = response.data
         

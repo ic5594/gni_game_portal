@@ -19,7 +19,7 @@ export default {
     },
     props:["leftRightNumberM","upDownNumberM","currentNumberM","routerlistM"],
     mounted:function(){
-        this.axios.get('./kids.json').then((response) =>{
+        this.axios.get('./json/kids.json').then((response) =>{
             console.log(JSON.stringify(response.data))
             this.kidsData = response.data
         })

@@ -1,21 +1,26 @@
 <template>
     <div id="mypage">
         <div class="mypage" style="display: block;">
-            <img id="item" v-bind:class="mypageredbord(0,1)" src="http://61.251.167.74/ktweb/gniportal/resource/mypage_text_01.png" style="top: 0px;">
-            <img id="item" src="http://61.251.167.74/ktweb/gniportal/resource/mypage_text_01.png" style="display: none; top: 0px;">
-            <img id="item" v-bind:class="mypageredbord(1,1)" src="http://61.251.167.74/ktweb/gniportal/resource/mypage_text_02.png" style="top: 50px;">
-            <img id="item" src="http://61.251.167.74/ktweb/gniportal/resource/mypage_text_02.png" style="display: none; top: 50px;">
-            <img id="item" v-bind:class="mypageredbord(2,1)" src="http://61.251.167.74/ktweb/gniportal/resource/mypage_text_03.png" style="top: 100px;">
-            <img id="item" src="http://61.251.167.74/ktweb/gniportal/resource/mypage_text_03.png" style="display: none; top: 100px;">
-            <img id="item" v-bind:class="mypageredbord(3,1)" src="http://61.251.167.74/ktweb/gniportal/resource/mypage_text_04.png" style="top: 150px;">
-            <img id="item" src="http://61.251.167.74/ktweb/gniportal/resource/mypage_text_04.png" style="display: none; top: 150px;">
-            <img id="item" v-bind:class="mypageredbord(4,1)" src="http://61.251.167.74/ktweb/gniportal/resource/mypage_text_05.png" style="top: 200px;">
-            <img id="item" src="http://61.251.167.74/ktweb/gniportal/resource/mypage_text_06.png" style="display: none; top: 200px;"></div>
+            <template v-for="(item, index) in mypageData" :key="index">
+                <img v-bind:class="mypageredbord(index,1)" v-bind="item" >
+            </template>
+        </div>
     </div>
 </template>
 <script>
 export default {
     props:["leftRightNumberM","upDownNumberM","currentNumberM","routerlistM"],
+    data:function(){
+        return{
+         mypageData:[]
+        }
+    },
+    mounted:function(){
+        this.axios.get("./json/mypage.json").then((response) => {
+            console.log(JSON.stringify(response.data))
+            this.mypageData=response.data
+        })
+    },
     methods:{
         mypageredbord:function(number1,number2){
             if(this.currentNumberM%this.routerlistM.length==7){
