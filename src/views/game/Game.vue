@@ -1,15 +1,15 @@
 <template>
     <div id="games">
-        <List v-bind:class="gameredbord(0,1)" title="지니 신맞고" type="보드게임" about="박진감 넘치는 한판!" imageurL="http://61.251.167.74/webportal2018/app/20210507105742029.png"></List>
-        <List v-bind:class="gameredbord(0,2)" title="펫마블" type="캐주얼" about="두개의 주사위로 떠나는 모험" imageurL="http://61.251.167.74/webportal2018/app/20210521103804952.png"></List>
-        <List v-bind:class="gameredbord(1,1)" title="히어로올스타즈" type="디팬스" about="최강의 히어로들이 모였다!" imageurL="http://61.251.167.74/webportal2018/app/20210504142152651.png"></List>
-        <List v-bind:class="gameredbord(1,2)" title="영웅전설" type="액션RPG" about="최강의 영웅이 되자!" imageurL="http://61.251.167.74/webportal2018/app/20210521103459832.png"></List>
-        <List v-bind:class="gameredbord(2,1)" title="고슈터" type="슈팅" about="도깨비 치우의 화끈 슈팅액션" imageurL="http://61.251.167.74/webportal2018/app/20190729093734701.png"></List>
-        <List v-bind:class="gameredbord(2,2)" title="스마몬마스터즈" type="퍼즐" about="퍼즐과 카드 배틀이 만났다!" imageurL="http://61.251.167.74/webportal2018/app/20210504142223797.png"></List>
-        <List v-bind:class="gameredbord(3,1)" title="배틀킹" type="전략&액션" about="실시간 전략 액션 게임!" imageurL="http://61.251.167.74/webportal2018/app/20190807104338490.png"></List>
-        <List v-bind:class="gameredbord(3,2)" title="치즈런" type="러닝" about="맛있는 치즈를 차지하라!" imageurL="http://61.251.167.74/webportal2018/app/20190716151400501.png"></List>
-        <List v-bind:class="gameredbord(4,1)" title="토이레이싱" type="아케이드" about="장난감들의 레이싱 게임" imageurL="http://61.251.167.74/webportal2018/app/20210507152650078.png"></List>
-        <List v-bind:class="gameredbord(4,2)" title="골드러너" type="캐주얼" about="보물을 찾아 떠나는 모험!" imageurL="http://61.251.167.74/webportal2018/app/20210504142451327.png"></List>
+        <List v-bind:class="gameredbord(0,1)" v-bind="gameData[0]"></List>
+        <List v-bind:class="gameredbord(0,2)" v-bind="gameData[1]"></List>
+        <List v-bind:class="gameredbord(1,1)" v-bind="gameData[2]"></List>
+        <List v-bind:class="gameredbord(1,2)" v-bind="gameData[3]"></List>
+        <List v-bind:class="gameredbord(2,1)" v-bind="gameData[4]"></List>
+        <List v-bind:class="gameredbord(2,2)" v-bind="gameData[5]"></List>
+        <List v-bind:class="gameredbord(3,1)" v-bind="gameData[6]"></List>
+        <List v-bind:class="gameredbord(3,2)" v-bind="gameData[7]"></List>
+        <List v-bind:class="gameredbord(4,1)" v-bind="gameData[8]"></List>
+        <List v-bind:class="gameredbord(4,2)" v-bind="gameData[9]"></List>
     </div>
 </template>
 <script>
@@ -19,7 +19,31 @@ export default {
     components:{
     'List':List
     },
+    data:function(){
+        return{
+            gameData:[],
+            gameIndex:[
+                "0,1",
+                "0,2",
+                "1,1",
+                "1,2",
+                "2,1",
+                "2,2",
+                "3,1",
+                "3,2",
+                "4,1",
+                "4,2"
+            ]
+        }
+    },
     props:["leftRightNumberM","upDownNumberM","currentNumberM","routerlistM"],
+    mounted:function(){
+        this.axios.get('/game.json').then(response => {
+            console.log(JSON.stringify(response.data))
+            this.gameData = response.data
+        
+        })
+    },
     methods:{
         gameredbord:function(number1,number2){
             if(this.currentNumberM%this.routerlistM.length==1){
