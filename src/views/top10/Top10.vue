@@ -1,22 +1,25 @@
 <template>
     <div id="top10">
-        <List v-bind:class="topredbord(0,1)" v-bind:top10data="top10array[0]"></List>
-        <List v-bind:class="topredbord(0,2)" title="히어로올스타즈" type="디팬스" about="최강의 히어로들이 모였다!" imageurL="http://61.251.167.74/webportal2018/app/20210504142152651.png"></List>
-        <List v-bind:class="topredbord(1,1)" title="골드러너" type="캐주얼" about="보물을 찾아 떠나는 모험" imageurL="http://61.251.167.74/webportal2018/app/20210504142152651.png">ewq</List>
-        <List v-bind:class="topredbord(1,2)" title="영웅전설" type="액션RPG" about="최강의 영웅이 되자!" imageurL="http://61.251.167.74/webportal2018/app/20210521103459832.png"></List>
-        <List v-bind:class="topredbord(2,1)" title="지니 신맞고" type="보드게임" about="박진감 넘치는 한판!" imageurL="http://61.251.167.74/webportal2018/app/20210507105742029.png"></List>
-        <List v-bind:class="topredbord(2,2)" title="정글타워" type="캐주얼" about="하늘 높이 탑을 쌓아보자!" imageurL="http://61.251.167.74/webportal2018/app/20180820091941804.png"></List>
-        <List v-bind:class="topredbord(3,1)" title="돌격정령친구들" type="캐주얼" about="최강 정령사를 가려라!" imageurL="http://61.251.167.74/webportal2018/app/20190207133003357.png"></List>
-        <List v-bind:class="topredbord(3,2)" title="토이레이싱" type="아케이드" about="장난감들의 레이싱 게임" imageurL="http://61.251.167.74/webportal2018/app/20210507152650078.png"></List>
-        <List v-bind:class="topredbord(4,1)" title="몬스터오팬스히어로" type="오팬스" about="오팬스 끝판왕! 히어로 등장" imageurL="http://61.251.167.74/webportal2018/app/20210504142240728.png"></List>      
-        <List v-bind:class="topredbord(4,2)" title="치즈런" type="러닝" about="맛있는 치즈를 차지하라!" imageurL="http://61.251.167.74/webportal2018/app/20190716151400501.png"></List>  
+        <!-- <template v-for="(item,index) in top10Data" :key="index">
+            <List v-bind="item" v-bind:class="top10RedBord(index)"></List>
+        </template> -->
+        <List v-bind:class="top10RedBord(0,1)" v-bind="top10Data[0]"></List>
+        <List v-bind:class="top10RedBord(0,2)" v-bind="top10Data[1]"></List>
+        <List v-bind:class="top10RedBord(1,1)" v-bind="top10Data[2]"></List>
+        <List v-bind:class="top10RedBord(1,2)" v-bind="top10Data[3]"></List>
+        <List v-bind:class="top10RedBord(2,1)" v-bind="top10Data[4]"></List>
+        <List v-bind:class="top10RedBord(2,2)" v-bind="top10Data[5]"></List>
+        <List v-bind:class="top10RedBord(3,1)" v-bind="top10Data[6]"></List>
+        <List v-bind:class="top10RedBord(3,2)" v-bind="top10Data[7]"></List>
+        <List v-bind:class="top10RedBord(4,1)" v-bind="top10Data[8]"></List>      
+        <List v-bind:class="top10RedBord(4,2)" v-bind="top10Data[9]"></List>
         <Top10numtag></Top10numtag>
     </div>
 </template>
 <script>
 import List from '../list.vue'
 import Top10numtag from './top10numtag.vue'
-import axios from 'axios'
+
 
 export default {
     components:{
@@ -25,7 +28,7 @@ export default {
     },
     data:function(){
         return{
-            top10array:[],
+            top10Data:[],
             top10Index:[
                 "0,1",
                 "0,2",
@@ -36,30 +39,30 @@ export default {
                 "3,1",
                 "3,2",
                 "4,1",
-                "4,2",
+                "4,2"
             ]
         }
     },
     props:["leftRightNumberM","upDownNumberM","currentNumberM","routerlistM"],
-
-    methods:{
-        top10data:function(){    
-        axios.get('/top10.json').then(function(response){
+    mounted:function() {
+        this.axios.get('/top10.json').then(response => {
             console.log(JSON.stringify(response.data))
-            this.top10array = response.data.data
+            this.top10Data = response.data
+            
         })
-        },
-       topredbord:function(number1,number2){
+    },
+    methods:{
+        top10RedBord:function(number1,number2){
             if(this.currentNumberM%this.routerlistM.length==0){
                 if(this.upDownNumberM%5==(number1)){
                     if(this.leftRightNumberM==(number2)){
                         return{
-                            topredbord:true
+                            top10RedBord:true
                         }
                     }
                     else
                         return{
-                            topredbord:false
+                            top10RedBord:false
                         }   
                 }
            }
@@ -74,8 +77,7 @@ export default {
     margin-bottom: 10px;
     margin-top:50px;
 }
-
-.topredbord{
+.top10RedBord{
     background-image: url(http://61.251.167.74/ktweb/gniportal/resource/box_select.png);
     background-repeat: no-repeat;
     background-size:cover;
