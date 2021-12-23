@@ -1,28 +1,39 @@
 <template>
     <div id="pupular">
-    <template v-for="(item,index) in animeData" :key="index">
-        <List v-bind="item"></List>
+    <template v-for="(item, index) in animeData" :key="index">
+        <Anmielist v-bind="item"></Anmielist>
     </template>
     </div>
 </template>
 <script>
-import List from "../list.vue"
+import Anmielist from '../Animelist.vue'
 
 export default {
     components:{
-    'List':List
+    "Anmielist":Anmielist
     },
     data:function(){
         return{
             animeData:[]
         }
     },
-    mounted:function(){
-            this.axios.get('./json/anime.json').then(response => {
-            console.log(JSON.stringify(response.data))
-            this.animeData = response.data
+    mounted:function() {
+        const request = {
+            "page": 1,
+            "pageSize": 9999,
+            "priId": "11503850810"
+        }
+        this.axios.post('http://wp-api.gnigame.com/webportal-api/comic/all/list',request,{
+            headers:{
+                "token":"ohSRXyRab-4VCJUzra8Aq1RQINInvyKYEu2Rp_yHT8Q*"
+            }
+        }
+        )
+        .then(response => {
+            console.log(response.data)
+            this.animeData = response.data.list
         })
-    }
+    },
 }
 </script>
 <style>
@@ -31,6 +42,6 @@ export default {
     width:900px;
     position: relative;
     left:280px;
-    bottom: 420px;
+    bottom: 460px;
 }
 </style>

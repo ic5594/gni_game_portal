@@ -50,7 +50,7 @@ export default {
 #anime{
     float: left;
     background-color: black;
-    opacity: 0.8;
+    opacity: 0.7;
     width: 300px;
     height: 809px;
     padding-top: 160px;
@@ -60,12 +60,12 @@ export default {
     font-size: 40px;
     color:white;
     list-style: none;
-    margin-bottom:7px;
-      
+    margin-bottom:7px;    
 }
 .animeredbord{
     background-image: url(http://61.251.167.74/ktweb/gniportal/resource/selsect_customer_info.png);
     background-repeat: no-repeat;
-    background-size:96% 100%;  
+    background-size:99% 100%; 
+  
 }
 </style>

@@ -1,25 +1,14 @@
 <template>
     <div id="top10">
-        <template v-for="(item,index) in top10Index" :key="index">
-            <List v-bind="top10Data[index]" v-bind:class="top10RedBord(item)"></List>
+        <template v-for="(item,index) in top10Data" :key="index">
+            <List v-bind="item" v-bind:class="top10RedBord(top10Index1[index],top10Index2[index])"></List>
         </template>
-        <!-- <List v-bind:class="top10RedBord(0,1)" v-bind="top10Data[0]"></List>
-        <List v-bind:class="top10RedBord(0,2)" v-bind="top10Data[1]"></List>
-        <List v-bind:class="top10RedBord(1,1)" v-bind="top10Data[2]"></List>
-        <List v-bind:class="top10RedBord(1,2)" v-bind="top10Data[3]"></List>
-        <List v-bind:class="top10RedBord(2,1)" v-bind="top10Data[4]"></List>
-        <List v-bind:class="top10RedBord(2,2)" v-bind="top10Data[5]"></List>
-        <List v-bind:class="top10RedBord(3,1)" v-bind="top10Data[6]"></List>
-        <List v-bind:class="top10RedBord(3,2)" v-bind="top10Data[7]"></List>
-        <List v-bind:class="top10RedBord(4,1)" v-bind="top10Data[8]"></List>      
-        <List v-bind:class="top10RedBord(4,2)" v-bind="top10Data[9]"></List> -->
         <Top10numtag></Top10numtag>
     </div>
 </template>
 <script>
 import List from '../list.vue'
 import Top10numtag from './top10numtag.vue'
-
 
 export default {
     components:{
@@ -29,26 +18,44 @@ export default {
     data:function(){
         return{
             top10Data:[],
-            top10Index:[
-                "0,1",
-                "0,2",
-                "1,1",
-                "1,2",
-                "2,1",
-                "2,2",
-                "3,1",
-                "3,2",
-                "4,1",
-                "4,2"
+            top10Index1:[
+                "0",
+                "0",
+                "1",
+                "1",
+                "2",
+                "2",
+                "3",
+                "3",
+                "4",
+                "4"
+            ],
+            top10Index2:[
+                "1",
+                "2",
+                "1",
+                "2",
+                "1",
+                "2",
+                "1",
+                "2",
+                "1",
+                "2",
             ]
         }
     },
     props:["leftRightNumberM","upDownNumberM","currentNumberM","routerlistM"],
     mounted:function() {
-        this.axios.get('./json/top10.json').then(response => {
-            console.log(JSON.stringify(response.data))
-            this.top10Data = response.data
-            
+        const request = {
+            "svcaId": 210,
+            "top10Yn": "Y",
+            "useYn": "Y"     
+        }
+        this.axios.post('http://wp-api.gnigame.com/webportal-api/app/list',request)
+        .then(response => {
+            console.log(response.data)
+            this.top10Data = response.data.list
+            console.log(this.top10Data)
         })
     },
     methods:{
@@ -60,10 +67,11 @@ export default {
                             top10RedBord:true
                         }
                     }
-                    else
+                    else{
                         return{
                             top10RedBord:false
-                        }   
+                        }
+                    }       
                 }
            }
        }

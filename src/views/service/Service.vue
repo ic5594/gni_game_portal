@@ -1,47 +1,49 @@
 <template>
     <div id="service">
-        <div id="textlist" style="position: absolute;left: 8px;top: 117px;width: 661px;height: 311px;
-        background-image: url(http://61.251.167.74/ktweb/gniportal/resource/customer_info_back.png);">
-        <template v-for="(item,index) in serviceText" :key="index">
-            <p v-bind:class="serviceredbord(index,1)" v-bind="serviceData[index]">{{item}}</p>
+        <ol>
+        <template v-for="(item,index) in serviceData" :key="index">
+            <Servicewindow v-bind="item" v-bind:class="serviceRedBord(index,1)"></Servicewindow>
         </template>
-        </div>
+        </ol>
     </div>
 </template>
 <script>
-export default {
+import Servicewindow from "./Servicewindow.vue"
+
+export default{ 
+    components: { 
+      "Servicewindow":Servicewindow 
+    },
     props:["leftRightNumberM","upDownNumberM","currentNumberM","routerlistM"],
     data:function(){
         return{
-            serviceData:[],
-            serviceText:[
-                "1. 고객센터는 어떻게 연락하나요?",
-                "2. 지니게임 이메일 고객센터 안내",
-                "3. 게임플레이는 무료인가요?",
-                "4. 유료 아이템은 어떻게 구매하나요?",
-                "5. 요금이 너무 많이 나왔어요! 결제내역 확인은 어떻게 하나요?",
-                "6. 구매한 아이템 환불을 신청하고 싶어요. 어떻게 해야 하나요?"
-            ]
+            serviceData:[]
         }
     },
     mounted:function(){
-        this.axios.get('./json/service.json').then((response) =>{
-        console.log(JSON.stringify(response.data))
-        this.serviceData = response.data
+        const request ={
+            "svcaId": 210,
+            "appId": "5001",
+            "useYn": "Y"
+        }
+        this.axios.post('http://wp-api.gnigame.com/webportal-api/qna/list',request)
+        .then((response) =>{
+        this.serviceData = response.data.list
+        console.log(this.serviceData)
         })
     },
     methods:{
-        serviceredbord:function(number1,number2){
+        serviceRedBord:function(number1,number2){
              if(this.currentNumberM%this.routerlistM.length==6){
-                if(this.upDownNumberM%6==(number1)){
+                if(this.upDownNumberM%this.serviceData.length==(number1)){
                     if(this.leftRightNumberM==(number2)){
                         return{
-                            serviceredbord:true
+                            serviceRedBord:true
                         }
                     }
                 else
                     return{
-                        serviceredbord:false
+                        serviceRedBord:false
                     }   
                 }
            }
@@ -53,13 +55,17 @@ export default {
 #service{
     float: left;
     position: relative;
-    top:270px;
+    left: 8px;
+    top: 470px;
+    width: 661px;
+    height: 311px;
+    background-image: url(http://61.251.167.74/ktweb/gniportal/resource/customer_info_back.png);
 }
-
-#service p{
-    margin-left: 10px;
+#service ol{
+    position: relative;
+    bottom:30px;
 }
-.serviceredbord{
+.serviceRedBord{
     background-image: url(http://61.251.167.74/ktweb/gniportal/resource/selsect_customer_info.png);
     background-repeat: no-repeat;
     background-size:100% 100%  

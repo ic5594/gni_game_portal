@@ -18,10 +18,18 @@ export default {
         }
     },
     props:["leftRightNumberM","upDownNumberM","currentNumberM","routerlistM"],
-    mounted:function(){
-        this.axios.get('./json/kids.json').then((response) =>{
-            console.log(JSON.stringify(response.data))
-            this.kidsData = response.data
+    mounted:function() {
+        const request = {
+            "svcaId": 210,
+            "top10Yn": "N",
+            "categoryId": "3",
+            "useYn": "Y"
+        }
+    this.axios.post('http://wp-api.gnigame.com/webportal-api/app/list',request)
+        .then(response => {
+            console.log(response.data)
+            this.kidsData = response.data.list
+            console.log(this.kidsData)
         })
     },
     methods:{

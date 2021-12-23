@@ -1,14 +1,14 @@
 <template>
     <div id="list">
-        <img :src="iconImg">
-        <h1>{{appName}}</h1>
-        <h2>{{comment1}}<br>
-        {{comment2}}</h2>
+        <img :src="iconImage">
+        <h1>{{title}}</h1>
+        <h2>장르 -{{genre}}<br>
+        {{drawer}}</h2>
     </div>
 </template>
 <script>
 export default {
-    props:['iconImg','appName','comment1','comment2']
+    props:["iconImage","title","genre","drawer"]
     }
 </script>
 <style>
@@ -16,7 +16,7 @@ export default {
     display: inline-block;
     width:380px;
     background-color: black;
-    opacity: 0.8;
+    opacity: 0.96;
     padding:5px;
     margin: 16px;
     height: 144px;

@@ -15,14 +15,14 @@ export default {
         goredNo:function(){
             if(this.currentNumberM%this.routerlistM.length==4){
                 if(this.leftRightNumberM==1){
-                        return{
-                            eventredbord:true
-                        }
+                    return{
+                        eventredbord:true
                     }
-                    else
-                        return{
-                            eventredbord:false
-                        }
+                }
+                else
+                    return{
+                        eventredbord:false
+                    }
             }
         }
     }
