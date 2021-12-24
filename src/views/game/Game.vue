@@ -3,6 +3,7 @@
         <template v-for="(item,index) in gameData" :key="index">
             <List v-bind="item" v-bind:class="gameRedBord(gameIndex1[index],gameIndex2[index])"></List>
         </template>
+        <p id="error" v-if="gameerrormessage">&nbsp;&nbsp;&nbsp;&nbsp;페이지 오류! 뒤로가기 버튼을 눌러주세요!</p>
     </div> 
 </template>
 <script>
@@ -25,7 +26,14 @@ export default {
                 "3",
                 "3",
                 "4",
-                "4"
+                "4",
+                "5",
+                "5",
+                "6",
+                "6",
+                "7",
+                "7",
+                "8"
             ],
             gameIndex2:[
                 "1",
@@ -39,8 +47,14 @@ export default {
                 "1",
                 "2",
                 "1",
-                "2"
-            ]
+                "2",
+                "1",
+                "2",
+                "1",
+                "2",
+                "1"
+            ],
+            gameerrormessage:false
         }
     },
     props:["leftRightNumberM","upDownNumberM","currentNumberM","routerlistM"],
@@ -53,26 +67,30 @@ export default {
         }
         this.axios.post('http://wp-api.gnigame.com/webportal-api/app/list',request)
         .then(response => {
-            console.log(response.data)
             this.gameData = response.data.list
             console.log(this.gameData)
+        })
+        .catch((error)=>{
+            console.log(error.response)
+            this.gameerrormessage=true
         })
     },
     methods:{
         gameRedBord:function(number1,number2){
             if(this.currentNumberM%this.routerlistM.length==1){
-                if(this.upDownNumberM%5==(number1)){
+                if(this.upDownNumberM%9==(number1)){
                     if(this.leftRightNumberM==(number2)){
                         return{
                             gameRedBord:true
                         }
                     }
-                    else
+                    else{
                         return{
                             gameRedBord:false
-                        }   
+                        }
+                    }   
                 }
-           }
+            }
         }
     }
 }
@@ -82,6 +100,10 @@ export default {
     width:1000px;
     float: left;
     margin-top:50px;
+}
+#games p{
+    position: relative;
+    top:180px;
 }
 .gameRedBord{
     background-image: url(http://61.251.167.74/ktweb/gniportal/resource/box_select.png);

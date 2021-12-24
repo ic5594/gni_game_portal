@@ -1,8 +1,9 @@
 <template>
-    <div id="pupular">
+    <div id="popular">
     <template v-for="(item, index) in animeData" :key="index">
         <Anmielist v-bind="item"></Anmielist>
     </template>
+    <p id="error" v-if="animeerrormessage">&nbsp;&nbsp;&nbsp;&nbsp;페이지 오류! 뒤로가기 버튼을 눌러주세요!</p>
     </div>
 </template>
 <script>
@@ -14,7 +15,8 @@ export default {
     },
     data:function(){
         return{
-            animeData:[]
+            animeData:[],
+            animeerrormessage:false
         }
     },
     mounted:function() {
@@ -27,21 +29,28 @@ export default {
             headers:{
                 "token":"ohSRXyRab-4VCJUzra8Aq1RQINInvyKYEu2Rp_yHT8Q*"
             }
-        }
-        )
+        })
         .then(response => {
             console.log(response.data)
             this.animeData = response.data.list
+        })
+        .catch((error)=>{
+            console.log(error.response)
+            this.animeerrormessage=true
         })
     },
 }
 </script>
 <style>
-#pupular{
+#popular{
     float:left;
     width:900px;
     position: relative;
     left:280px;
     bottom: 460px;
+}
+#popular p{
+    position: relative;
+    top:280px;
 }
 </style>

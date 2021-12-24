@@ -4,6 +4,7 @@
             <List v-bind="item" v-bind:class="top10RedBord(top10Index1[index],top10Index2[index])"></List>
         </template>
         <Top10numtag></Top10numtag>
+        <p id="error" v-if="top10errormessage">&nbsp;&nbsp;&nbsp;&nbsp;페이지 오류! 뒤로가기 버튼을 눌러주세요!</p>
     </div>
 </template>
 <script>
@@ -41,22 +42,28 @@ export default {
                 "2",
                 "1",
                 "2",
-            ]
+            ],
+            top10errormessage:false
         }
     },
     props:["leftRightNumberM","upDownNumberM","currentNumberM","routerlistM"],
-    mounted:function() {
+    mounted:function(){
         const request = {
             "svcaId": 210,
             "top10Yn": "Y",
             "useYn": "Y"     
         }
         this.axios.post('http://wp-api.gnigame.com/webportal-api/app/list',request)
-        .then(response => {
+        .then((response) => {
             console.log(response.data)
             this.top10Data = response.data.list
             console.log(this.top10Data)
         })
+        .catch((error) =>{
+            console.log(error)
+            this.top10errormessage=true
+        })
+        
     },
     methods:{
         top10RedBord:function(number1,number2){
@@ -73,8 +80,8 @@ export default {
                         }
                     }       
                 }
-           }
-       }
+            }
+        }
     }
 }
 </script>
@@ -84,6 +91,10 @@ export default {
     float: left;
     margin-bottom: 10px;
     margin-top:50px;
+}
+#top10 p{
+    position: relative;
+    top:25px;
 }
 .top10RedBord{
     background-image: url(http://61.251.167.74/ktweb/gniportal/resource/box_select.png);
