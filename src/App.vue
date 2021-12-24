@@ -125,9 +125,16 @@ export default {
             stop()
             if(this.upDownNumber==-1){                              //세부 메뉴 인덱스  값 고정
               if(this.currentNumber%this.routerlist.length==0 || 
-                this.currentNumber%this.routerlist.length==1 || 
                 this.currentNumber%this.routerlist.length==7){
                 this.upDownNumber=4
+              }
+              else if(this.currentNumber%this.routerlist.length ==1){
+                if(this.leftRightNumber==1){
+                  this.upDownNumber=8
+                }
+                else if(this.leftRightNumber==2){
+                  this.upDownNumber=7
+                }
               }
               else if(this.currentNumber%this.routerlist.length==2 ||
                 this.currentNumber%this.routerlist.length==3){
@@ -165,6 +172,14 @@ export default {
           if(this.leftRightNumber>0){
             stop()
             this.upDownNumber+=1
+            if(this.currentNumber==1){
+              if(this.leftRightNumber==2 && this.upDownNumber ==8){
+                this.upDownNumber=0
+              }
+              else if(this.leftRightNumber ==1 && this.upDownNumber == 9){
+                this.upDownNumber=0
+              }
+            }
           }
           else if(this.leftRightNumber<0){                       //leftsidebar focus이동시 상하키 고정
             stop()
@@ -183,6 +198,11 @@ export default {
           this.leftRightNumber+=1                //좌우인덱스값 증가
           if(this.leftRightNumber==3){
             this.leftRightNumber=2
+          }
+          if(this.currentNumber==1){
+            if(this.leftRightNumber==2 && this.upDownNumber ==8){
+                this.upDownNumber=7
+            }
           }
           for(var g=2;g<9;g++){                 //레프트 인덱스 3이되면 2로 가지 back해주는 함수
             this.leftRightNumberstop(g)
@@ -318,5 +338,13 @@ export default {
   width:100px;
   z-index: 1;
   height: 100%;
+}
+#error{                       /* axios 예외처리 */          
+    color:black;
+    background-image: url(http://61.251.167.74/ktweb/gniportal/resource/SpeechBubble.png);
+    background-size:100% 100%;
+    background-repeat: no-repeat;  
+    width:560px;
+    height: 50px;
 }
 </style>
