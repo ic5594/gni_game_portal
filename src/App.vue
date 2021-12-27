@@ -7,7 +7,8 @@
     <router-view v-slot="{ Component }"> 
       <component :is="Component" v-bind:currentNumberM="currentNumber" 
       v-bind:routerlistM="routerlist" v-bind:leftRightNumberM="leftRightNumber" 
-      v-bind:upDownNumberM="upDownNumber"/> 
+      v-bind:upDownNumberM="upDownNumber" v-bind:gamePageMove2M="gamePageMove2"
+      v-bind:gamePageMove1M="gamePageMove1"/> 
     </router-view>
   </div>
 </template>
@@ -81,8 +82,10 @@ export default {
         '/tayo',
         '/pangdapang',
         '/two048'
-        ]
-    }
+        ],
+        gamePageMove1:true,        //첫번쨰줄 배열
+        gamePageMove2:false,        //6번쨰줄 부터 배열
+    }  
   },
   computed(){
     if(this.leftRightNumber==0){
@@ -128,13 +131,21 @@ export default {
                 this.currentNumber%this.routerlist.length==7){
                 this.upDownNumber=4
               }
-              else if(this.currentNumber%this.routerlist.length ==1){
+              else if(this.currentNumber%this.routerlist.length==1){
                 if(this.leftRightNumber==1){
                   this.upDownNumber=8
                 }
                 else if(this.leftRightNumber==2){
                   this.upDownNumber=7
                 }
+                 if(this.upDownNumber<5){        //game메뉴 페이지이동
+              this.gamePageMove1=true
+              this.gamePageMove2=false 
+            }
+            else if(this.upDownNumber==7 || this.upDownNumber==8){
+              this.gamePageMove1=false
+              this.gamePageMove2=true
+            } 
               }
               else if(this.currentNumber%this.routerlist.length==2 ||
                 this.currentNumber%this.routerlist.length==3){
@@ -172,18 +183,27 @@ export default {
           if(this.leftRightNumber>0){
             stop()
             this.upDownNumber+=1
-            if(this.currentNumber==1){
+            if(this.currentNumber%this.routerlist.length==1){
               if(this.leftRightNumber==2 && this.upDownNumber ==8){
                 this.upDownNumber=0
               }
               else if(this.leftRightNumber ==1 && this.upDownNumber == 9){
                 this.upDownNumber=0
               }
+
+              if(this.upDownNumber>=5 ){                             //game메뉴 페이지이동
+                this.gamePageMove1=false
+                this.gamePageMove2=true
+              }
+              else if(this.upDownNumber==0){
+                this.gamePageMove1=true
+                this.gamePageMove2=false
+              }
             }
           }
           else if(this.leftRightNumber<0){                       //leftsidebar focus이동시 상하키 고정
             stop()
-          } 
+          }
           else{                                                  //menu 이동
             this.currentNumber+=1
             this.pushrouterlist()
@@ -219,6 +239,12 @@ export default {
           }
           else if(this.leftRightNumber<-1){
             this.leftRightNumber=-1
+          }
+          else if(this.currentNumber==1){
+            if(this.leftRightNumber==0){
+              this.gamePageMove1=false
+              this.gamePageMove2=true
+            }
           }
           console.log("leftRight",this.leftRightNumber,
           "upDown",this.upDownNumber)
