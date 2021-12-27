@@ -1,9 +1,12 @@
 <template>
     <div id="games">
-        <template v-for="(item,index) in gameData" :key="index">
-            <List v-bind="item" v-bind:class="gameRedBord(gameIndex1[index],gameIndex2[index])"></List>
+        <template v-for="(item,index) in gameData2" :key="index">
+            <List v-if="gamePageMove1M" v-bind="item" v-bind:class="gameRedBord(gameIndex1_1[index],gameIndex1_2[index])"></List>
         </template>
-        <p id="error" v-if="gameerrormessage">&nbsp;&nbsp;&nbsp;&nbsp;페이지 오류! 뒤로가기 버튼을 눌러주세요!</p>
+        <template v-for="(item,index) in gameData1" :key="index">
+            <List v-if="gamePageMove2M" v-bind="item" v-bind:class="gameRedBord(gameIndex2_1[index],gameIndex2_2[index])"></List>
+        </template>
+        <p id="error" v-if="gameErrorMessage">&nbsp;&nbsp;&nbsp;&nbsp;페이지 오류! 뒤로가기 버튼을 눌러주세요!</p>
     </div> 
 </template>
 <script>
@@ -15,49 +18,25 @@ export default {
     },
     data:function(){
         return{
-            gameData:[],            //axios 통신 배열
-            gameIndex1:[
-                "0",
-                "0",
-                "1",
-                "1",
-                "2",
-                "2",
-                "3",
-                "3",
-                "4",
-                "4",
-                "5",
-                "5",
-                "6",
-                "6",
-                "7",
-                "7",
-                "8"
+            gameData:[],
+            gameData1:[],            //axios 통신 배열
+            gameData2:[],
+            gameIndex1_1:[
+                "0","0","1","1","2","2","3","3","4","4"
             ],
-            gameIndex2:[
-                "1",
-                "2",
-                "1",
-                "2",
-                "1",
-                "2",
-                "1",
-                "2",
-                "1",
-                "2",
-                "1",
-                "2",
-                "1",
-                "2",
-                "1",
-                "2",
-                "1"
+            gameIndex1_2:[
+                "1","2","1","2","1","2","1","2","1","2"
             ],
-            gameerrormessage:false
+            gameIndex2_1:[
+                "5","5","6","6","7","7","8"
+            ],
+            gameIndex2_2:[
+                "1","2","1","2","1","2","1"
+            ],
+           gameErrorMessage:false
         }
     },
-    props:["leftRightNumberM","upDownNumberM","currentNumberM","routerlistM"],
+    props:["leftRightNumberM","upDownNumberM","currentNumberM","routerlistM","gamePageMove1M","gamePageMove2M"],
     mounted:function(){
         const request = {
             "svcaId": 210,
@@ -66,13 +45,18 @@ export default {
             "useYn": "Y"
         }
         this.axios.post('http://wp-api.gnigame.com/webportal-api/app/list',request)
-        .then(response => {
+        .then((response) => {
             this.gameData = response.data.list
-            console.log(this.gameData)
+    
+            this.gameData1= this.gameData.splice(10,7)
+            console.log("gameData1: ",this.gameData1)
+
+            this.gameData2= this.gameData.splice(0,10)
+             console.log("gameData2: ",this.gameData2)
         })
         .catch((error)=>{
+            this.gameErrorMessage=true
             console.log(error.response)
-            this.gameerrormessage=true
         })
     },
     methods:{
