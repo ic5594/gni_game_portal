@@ -4,7 +4,7 @@
             <List v-bind="item" v-bind:class="top10RedBord(top10Index1[index],top10Index2[index])"></List>
         </template>
         <Top10numtag></Top10numtag>
-        <p id="error" v-if="top10errormessage">&nbsp;&nbsp;&nbsp;&nbsp;페이지 오류! 뒤로가기 버튼을 눌러주세요!</p>
+        <p id="error" v-if="top10errormessage">&nbsp;&nbsp;&nbsp;&nbsp;페이지 오류! TV를 껏다 켜주세요.</p>
     </div>
 </template>
 <script>
@@ -55,12 +55,11 @@ export default {
         }
         this.axios.post('http://wp-api.gnigame.com/webportal-api/app/list',request)
         .then((response) => {
-            console.log(response.data)
             this.top10Data = response.data.list
             console.log(this.top10Data)
         })
         .catch((error) =>{
-            console.log(error)
+            console.log(error.response)
             this.top10errormessage=true
         })
         

@@ -3,7 +3,7 @@
     <template v-for="(item, index) in animeData" :key="index">
         <Anmielist v-bind="item"></Anmielist>
     </template>
-    <p id="error" v-if="animeerrormessage">&nbsp;&nbsp;&nbsp;&nbsp;페이지 오류! 뒤로가기 버튼을 눌러주세요!</p>
+    <p id="error" v-if="animeerrormessage">&nbsp;&nbsp;&nbsp;&nbsp;페이지 오류!TV를 껏다 켜주세요.</p>
     </div>
 </template>
 <script>
@@ -30,15 +30,15 @@ export default {
                 "token":"ohSRXyRab-4VCJUzra8Aq1RQINInvyKYEu2Rp_yHT8Q*"
             }
         })
-        .then(response => {
-            console.log(response.data)
+        .then((response) => {
             this.animeData = response.data.list
+            console.log(this.animeData)
         })
         .catch((error)=>{
-            console.log(error.response)
             this.animeerrormessage=true
+            console.log(error.response)
         })
-    },
+    }
 }
 </script>
 <style>
