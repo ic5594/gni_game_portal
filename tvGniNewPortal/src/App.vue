@@ -123,9 +123,9 @@ export default {
 
         //up
         case 38 : 
-         this.upDownNumber-=1
           if(this.leftRightNumber>0){                
             stop()
+            this.upDownNumber-=1
             if(this.upDownNumber==-1){                              //세부 메뉴 인덱스  값 고정
               if(this.currentNumber%this.routerlist.length==0 || 
                 this.currentNumber%this.routerlist.length==7){
@@ -138,14 +138,6 @@ export default {
                 else if(this.leftRightNumber==2){
                   this.upDownNumber=7
                 }
-                 if(this.upDownNumber<5){        //game메뉴 페이지이동
-              this.gamePageMove1=true
-              this.gamePageMove2=false 
-            }
-            else if(this.upDownNumber==7 || this.upDownNumber==8){
-              this.gamePageMove1=false
-              this.gamePageMove2=true
-            } 
               }
               else if(this.currentNumber%this.routerlist.length==2 ||
                 this.currentNumber%this.routerlist.length==3){
@@ -157,6 +149,16 @@ export default {
               else if(this.currentNumber%this.routerlist.length==8){
                 this.upDownNumber=2
               }
+            }
+            if(this.currentNumber%this.routerlist.length==1){
+              if(this.upDownNumber<5){                              //game메뉴 페이지이동
+                this.gamePageMove1=true
+                this.gamePageMove2=false 
+                }
+              else if(this.upDownNumber==7 || this.upDownNumber==8){
+                this.gamePageMove1=false
+                this.gamePageMove2=true
+              } 
             }
           }
           else if(this.leftRightNumber<0){                        //leftsidebar focus이동시 상하키 고정
@@ -240,12 +242,10 @@ export default {
           else if(this.leftRightNumber<-1){
             this.leftRightNumber=-1
           }
-          else if(this.currentNumber==1){
-            if(this.leftRightNumber==0){
-              this.gamePageMove1=false
-              this.gamePageMove2=true
+          else if(this.leftRightNumber==0){
+              this.gamePageMove1=true
+              this.gamePageMove2=false
             }
-          }
           console.log("leftRight",this.leftRightNumber,
           "upDown",this.upDownNumber)
         break;
@@ -255,78 +255,78 @@ export default {
   methods:{
     top10move:function(){
       if(this.currentNumber%this.routerlist.length==0){         //top10 세부메뉴 이동
-            for(var a=0;a<this.top10data.length/2;a++){
-              this.top10entermenu1(a,1)
-            }
-            for(var b=0;b<this.top10data.length/2;b++){
-              this.top10entermenu2(b,2)
-            }
-          }
+        for(var a=0;a<this.top10data.length/2;a++){
+          this.top10entermenu1(a,1)
+        }
+        for(var b=0;b<this.top10data.length/2;b++){
+          this.top10entermenu2(b,2)
+        }
+      }
     },
     gamemove:function(){
       if(this.currentNumber%this.routerlist.length==1){    //game 세부메뉴 이동
-            for(var c=0;c<this.gamedata.length/2;c++){
-              this.gameentermenu1(c,1)
-            }
-            for(var d=0;d<this.gamedata.length/2;d++){
-              this.gameentermenu2(d,2)
-            }
-          }
+        for(var c=0;c<this.gamedata.length/2;c++){
+          this.gameentermenu1(c,1)
+        }
+        for(var d=0;d<this.gamedata.length/2;d++){
+          this.gameentermenu2(d,2)
+        }
+      }
     },
     kidsmove:function(){
       if(this.currentNumber%this.routerlist.length==3){    //kids 세부메뉴 이동
-              if(this.leftRightNumber==1){
-                for(var q=0;q<this.kidsdata.length;q++){
-                  this.kidsentermenu(q)
-              }
-            }
+        if(this.leftRightNumber==1){
+          for(var q=0;q<this.kidsdata.length;q++){
+            this.kidsentermenu(q)
           }
+        }
+      }
     },
     servicemove:function(){
       if(this.currentNumber%this.routerlist.length==6){     //service 세부메뉴 이동
-            if(this.leftRightNumber==1){
-              for(var e=0;e<this.servicedata.length;e++){
-                this.serviceentermenu(e)
-              }
-            }
+        if(this.leftRightNumber==1){
+          for(var e=0;e<this.servicedata.length;e++){
+            this.serviceentermenu(e)
           }
+        }
+      }
     },
     mypagemove:function(){
       if(this.currentNumber%this.routerlist.length==7){     //mypage 세부메뉴 이동
-            if(this.leftRightNumber==1){
-              for(var f=0;f<this.mypagedata.length;f++){
-                this.mypageentermenu(f)
-              }
-            }
+        if(this.leftRightNumber==1){
+          for(var f=0;f<this.mypagedata.length;f++){
+            this.mypageentermenu(f)
           }
+        }
+      }
     },
     escmenu:function(number){
       if(this.currentNumber%this.routerlist.length==(number)){
-              this.$router.push(this.routerlist[(number)])
-            }
+        this.$router.push(this.routerlist[(number)])
+      }
     },
     pushrouterlist:function(){      //메뉴이동 메소드
       this.$router.push(this.routerlist[this.currentNumber%this.routerlist.length])
     },
     top10entermenu1:function(number1){//top10 세부메뉴 이동 메소드
       if(this.upDownNumber%5==(number1) && this.leftRightNumber==1){
-              this.$router.push(this.top10data[(number1)])
-            }
+        this.$router.push(this.top10data[(number1)])
+      }
     },
     top10entermenu2:function(number1){//top10 세부메뉴 이동 메소드
       if(this.upDownNumber%5==(number1) && this.leftRightNumber==2){
-              this.$router.push(this.top10data[(number1+5)])
-            }
+        this.$router.push(this.top10data[(number1+5)])
+      }
     },
     gameentermenu1:function(number1){//game 세부메뉴 이동 메소드
       if(this.upDownNumber%5==(number1) && this.leftRightNumber==1){
-              this.$router.push(this.gamedata[(number1)])
-            }
+        this.$router.push(this.gamedata[(number1)])
+      }
     },
     gameentermenu2:function(number1){//game 세부메뉴 이동 메소드
       if(this.upDownNumber%5==(number1) && this.leftRightNumber==2){
-              this.$router.push(this.gamedata[(number1+5)])
-            }
+        this.$router.push(this.gamedata[(number1+5)])
+      }
     },
     kidsentermenu:function(number){//kids 세부메뉴 이동 메소드
       if(this.upDownNumber%this.kidsdata.length==(number)){
@@ -335,24 +335,24 @@ export default {
     },
     serviceentermenu:function(number){              //서비스 메뉴 라우터 이동함수
       if(this.upDownNumber%this.servicedata.length==(number)){
-              this.$router.push(this.servicedata[(number)])
-            }
+        this.$router.push(this.servicedata[(number)])
+      }
     },
     mypageentermenu:function(number){              //서비스 메뉴 라우터 이동함수
       if(this.upDownNumber%this.mypagedata.length==(number)){
-              this.$router.push(this.mypagedata[(number)])
-            }
+        this.$router.push(this.mypagedata[(number)])
+      }
     },
     leftRightNumberstop(number){
       if(this.currentNumber==(number)){   //세부 메뉴에서 오른쪽으로 더 안가지게 고정
-        if(this.leftRightNumber==2)
+        if(this.leftRightNumber==2){
           this.leftRightNumber=1
+        }
       }
     },
     initialization:function(){    //여러 인덱스 값 초기화
       this.upDownNumber=0
-      this.leftRightNumber=0
-      
+      this.leftRightNumber=0  
     }
   }
 }
