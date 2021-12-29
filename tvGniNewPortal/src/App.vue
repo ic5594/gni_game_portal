@@ -242,10 +242,16 @@ export default {
           else if(this.leftRightNumber<-1){
             this.leftRightNumber=-1
           }
-          else if(this.leftRightNumber==0){
-              this.gamePageMove1=true
-              this.gamePageMove2=false
+
+          if(this.currentNumber%this.routerlist.length==1){
+            if(this.gamePageMove1==false && this.gamePageMove2==true){
+              if(this.leftRightNumber==0){
+                this.gamePageMove1=true
+                this.gamePageMove2=false
+              } 
             }
+          }
+
           console.log("leftRight",this.leftRightNumber,
           "upDown",this.upDownNumber)
         break;
